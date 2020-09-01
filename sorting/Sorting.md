@@ -161,15 +161,9 @@ I dette arbeidskravet er to varianter av quicksort (single-pivot og dualpivot) s
 def random_list(n):
     return [[round(randrange(n)) for i in range(n)]]
 
-
-compare([quicksort,dp_quicksort],
-        ["single pivot","dual pivot"],
-        random_list,
-        scale= 8, steps= 5, title="Random\n Array performance Comparison")
 ```
 
-                                                                     
-
+                                                                    
 
 ![png](output_10_1.png)
 
@@ -197,11 +191,6 @@ compare([quicksort,dp_quicksort],
 ```python
 def duplicates_list(n):
     return [[ i if i%2 == 0 else 13 for i in range(n)]]
-
-compare([quicksort,dp_quicksort],
-        ["single pivot","dual pivot"],
-        duplicates_list,
-        scale=4.2, title="Many Duplicates\n Array performance Comparison")
 ```
 
                                                                      
@@ -231,15 +220,9 @@ compare([quicksort,dp_quicksort],
 ```python
 def sorted_list(n):
     return [list(range(n))]
-
-compare([quicksort,dp_quicksort],
-        ["single pivot","dual pivot"],
-        sorted_list,
-        scale=3.8, steps = 5, title="Pre-sorted\n Array performance Comparison")
 ```
 
-                                                                     
-
+                                                                  
 
 ![png](output_14_1.png)
 
@@ -262,21 +245,6 @@ compare([quicksort,dp_quicksort],
 ## Tidsmålinger Sammenlignet
 
 
-```python
-n = 5000
-
-array_types = [random_list, duplicates_list, sorted_list]
-args = [array_types[i](n) for i in range(len(array_types))]
-
-headers = ["Array type", "Single pivot", "Dual pivot"]
-arr_type = ["Random", "Duplicates", "Sorted"]
-single_piv = [ round(take_time_of(quicksort, a),4) for a in args ]
-dual_piv = [ round(take_time_of(dp_quicksort, a),4) for a in args ]
-
-display(HTML(tabulate.tabulate(zip(arr_type, single_piv, dual_piv), headers, tablefmt='html')))
-```
-
-
 <table>
 <thead>
 <tr><th>Array type  </th><th style="text-align: right;">  Single pivot</th><th style="text-align: right;">  Dual pivot</th></tr>
@@ -295,6 +263,8 @@ Som forventet er min enkle quicksort algoritme ikke optimalisert og har derfor v
 -------------
 ## Beståtte Tester
 
+    ✅ Single pivot quicksort passed
+    ✅ Dual pivot quicksort passed
 
 ```python
 def test_function(name,func,list_gen_args,tests):
@@ -331,6 +301,5 @@ test_function("Single pivot quicksort",quicksort, list_types, tests)
 test_function("Dual pivot quicksort",dp_quicksort, list_types, tests)
 ```
 
-    ✅ Single pivot quicksort passed
-    ✅ Dual pivot quicksort passed
+
     
