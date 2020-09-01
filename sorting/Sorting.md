@@ -2,11 +2,6 @@
   <summary>Importering og tidsmålingskode</summary>
   
   
-  ```javascript
-  console.log("I'm a code block!");
-  ```
-  
-
 
 ```python
 from IPython.display import HTML, display
