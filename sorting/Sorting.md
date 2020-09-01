@@ -247,6 +247,19 @@ Som forventet er min enkle quicksort algoritme ikke optimalisert og har derfor v
     ✅ Dual pivot quicksort passed
 
 ```python
+
+def checksum(func, arr):
+    return sum(arr) == sum(func(arr))
+
+def checkorder(func, arr):
+    sort = func(arr)
+    for i in range(len(arr) - 1): 
+        if sort[i+1] < sort[i]: 
+            return False
+    
+    return True
+
+
 def test_function(name,func,list_gen_args,tests):
     n = 10**2
     
@@ -260,20 +273,7 @@ def test_function(name,func,list_gen_args,tests):
                 return
             
     print(f"✅ {name} passed")
-```
 
-
-```python
-def checksum(func, arr):
-    return sum(arr) == sum(func(arr))
-
-def checkorder(func, arr):
-    sort = func(arr)
-    for i in range(len(arr) - 1): 
-        if sort[i+1] < sort[i]: 
-            return False
-    
-    return True
 
 tests = [checksum, checkorder]
 list_types = [random_list,duplicates_list,sorted_list]
