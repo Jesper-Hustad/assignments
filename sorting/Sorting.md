@@ -156,13 +156,6 @@ I dette arbeidskravet er to varianter av quicksort (single-pivot og dualpivot) s
 
 ## Tilfeldige Tall Array Tidsmålinger
 
-
-```python
-def random_list(n):
-    return [[round(randrange(n)) for i in range(n)]]
-
-```
-
                                                                     
 
 ![png](output_10_1.png)
@@ -192,10 +185,7 @@ def random_list(n):
 def duplicates_list(n):
     return [[ i if i%2 == 0 else 13 for i in range(n)]]
 ```
-
                                                                      
-
-
 ![png](output_12_1.png)
 
 
@@ -215,14 +205,7 @@ def duplicates_list(n):
 
 
 ## Forhåndssortert Array Tidsmålinger
-
-
-```python
-def sorted_list(n):
-    return [list(range(n))]
-```
-
-                                                                  
+                                                        
 
 ![png](output_14_1.png)
 
@@ -244,10 +227,11 @@ def sorted_list(n):
 
 ## Tidsmålinger Sammenlignet
 
+Som forventet er min enkle quicksort algoritme ikke optimalisert og har derfor værre ytelse på den forhåndssorterte og mange duplikater array, imens en array med tilfeldige tall har mye bedre ytelse. Vi ser også at dual-pivot slår ut single-pivot variasjonen etter array størrelsen blir tilstrekkelig mye større.
 
 <table>
 <thead>
-<tr><th>Array type  </th><th style="text-align: right;">  Single pivot</th><th style="text-align: right;">  Dual pivot</th></tr>
+<tr><th>Array type  </th><th style="text-align: right;">Single pivot (s)</th><th style="text-align: right;">Dual pivot (s)</th></tr>
 </thead>
 <tbody>
 <tr><td>Random      </td><td style="text-align: right;">        0.0096</td><td style="text-align: right;">      0.0081</td></tr>
@@ -255,10 +239,6 @@ def sorted_list(n):
 <tr><td>Sorted      </td><td style="text-align: right;">        1.2109</td><td style="text-align: right;">      0.7742</td></tr>
 </tbody>
 </table>
-
-
-## Konklusjoner
-Som forventet er min enkle quicksort algoritme ikke optimalisert og har derfor værre ytelse på den forhåndssorterte og mange duplikater array, imens en array med tilfeldige tall har mye bedre ytelse. Vi ser også at dual-pivot slår ut single-pivot variasjonen etter array størrelsen blir tilstrekkelig mye større.
 
 -------------
 ## Beståtte Tester
