@@ -1,5 +1,7 @@
-## heyo
-sajkasassa
+## **Øving1**
+# Relasjonsmodellen, del 1
+Database for boligbyggerlaget Bygg & Bo.  
+Her har vi alle oppgavene
 
 ## a)
 ![](UML_klasse.png)
@@ -17,8 +19,6 @@ CREATE TABLE `bygg_og_bo`.`borettslag` (
     `etableringsår` INT NOT NULL ,
     PRIMARY KEY (`id`)
     ) 
-ENGINE = InnoDB;
-
 ```
 
 ```sql
@@ -29,7 +29,6 @@ CREATE TABLE `bygg_og_bo`.`bygg` (
     PRIMARY KEY (`id`), 
     INDEX `id` (`borettslag`)
     ) 
-ENGINE = InnoDB;
 ```
 
 ```sql
@@ -43,11 +42,10 @@ CREATE TABLE `bygg_og_bo`.`leilighet` (
     PRIMARY KEY (`id`), 
     INDEX `id` (`bygg`)
     )
-ENGINE = InnoDB;
 ```
 
 ```sql
-CREATE TABLE `ygg_og_bo`.`medlem` ( 
+CREATE TABLE `bygg_og_bo`.`medlem` ( 
     `id` INT NOT NULL AUTO_INCREMENT , 
     `leilighet` INT NOT NULL , 
     `navn` VARCHAR(300) NOT NULL , 
@@ -55,12 +53,12 @@ CREATE TABLE `ygg_og_bo`.`medlem` (
     PRIMARY KEY (`id`), 
     INDEX `id` (`leilighet`)
     ) 
-ENGINE = InnoDB;
 ```
 
 ## d)
 
 ### Leilighet tabell:
+
 | id | bygg | antall_rom | areal | etasjer | leilighetsnummer |
 |----|------|------------|-------|---------|------------------|
 | 1  | 2    | 9          | 137   | 3       | 1                |
@@ -68,6 +66,7 @@ ENGINE = InnoDB;
 | 3  | 1    | 5          | 97    | 1       | 2                |
 
 ### Medlem tabell:
+
 | id | leilighet | navn          | epost                |
 |----|-----------|---------------|----------------------|
 | 1  | 2         | Ola Nordmann  | OlaNord@gmail.com    |
