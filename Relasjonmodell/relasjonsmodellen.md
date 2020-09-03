@@ -1,13 +1,18 @@
 ## **Øving1**
 # Relasjonsmodellen, del 1
-Database for boligbyggerlaget Bygg & Bo.  
-Her har vi alle oppgavene
+Her er database oppgavene om boligbyggerlaget Bygg & Bo.  
 
 ## a)
+> Unngå også å lagre data som kan avledes av andre data.
+
+
+Inkluderte derfor ikke antall bygg i borettslag og antal leligheter i bygg fordi disse kan avledes gjennom å telle hvor mange bygg/leiligheter som referer tabellen.
+
+
 ![](UML_klasse.png)
 
 ## b)
-Insert relasjon modell her
+![](relasjonsmodell.png)
 
 
 ## c)
