@@ -12,7 +12,18 @@ Inkluderte derfor ikke antall bygg i borettslag og antal leligheter i bygg fordi
 ![](UML_klasse.png)
 
 ## b)
-![](relasjonsmodell.png)
+
+
+>borettslag(<ins>id</ins>, navn, adresse, etableringsår)
+
+>bygg(<ins>id</ins>, borettslag*, adresse)
+
+>leilighet(<ins>id</ins>, bygg*, antall_rom, areal, etasjer, leilighetsnummer)
+
+>medlem(<ins>id</ins>, leilighet*, navn, epost)
+
+
+<!-- ![](relasjonsmodell.png) -->
 
 
 ## c)
@@ -82,6 +93,7 @@ CREATE TABLE `bygg_og_bo`.`medlem` (
 ```sql
 INSERT INTO `medlem`(`leilighet`, `navn`, `epost`) VALUES (1, "Brason Manson", "altbra@ntnu.no")
 ```
+Id atributtet trengs ikke å refereres fordi det er en `AUTO_INCREMENT` verdi, altså vi trenger ikke å tenke på det og lar databasen håndtere det for oss.
 
 ### Dårlig referanse `INSERT` setning:
 
@@ -89,14 +101,24 @@ INSERT INTO `medlem`(`leilighet`, `navn`, `epost`) VALUES (1, "Brason Manson", "
 INSERT INTO `medlem`(`leilighet`, `navn`, `epost`) VALUES (9, "Feilu Torsu", "neinei@bad.no")
 ```
 
-Dette er fordi det ikke finnes noe leilighet med id på 9 og vi får derfor et brudd på entitets- og referanseintegritetsreglene.
+Dette er fordi det ikke finnes noe leilighet med id på 9 og vi får derfor et brudd på referanseintegritetsreglene.
+
+### Dårlig identitets `INSERT` setning:
+
+```sql
+INSERT INTO `medlem`(`id`,`leilighet`, `navn`, `epost`) VALUES (1 , 2, "Duplikatus Ideus", "feiligjen@verrybad.no")
+```
+
+I databasen så har vi allerede et medlem med id av 1, så her får vi brudd på entitetsintegritetsreglene fordi det blir flere elementer med en id på 1. Dette er et problem fordi id skal være en unik identifikator, men det blir ikke lenger det i dette tilfellet.
 
 
 ## e)
 Når det kommer til at fremmednøkler kan være NULL får vi fra oppgaven at
 > Det er mulig å være medlem i et borettslag uten å eie en leilighet der  
 
-Fra dette kan vi se for oss at fremmednøkkelen til et medlem som peker til en leilighet burde kunne være NULL
+Fra dette kan vi se for oss at fremmednøkkelen til et medlem som peker til en leilighet burde kunne være NULL  
+
+Primærnøkkel har som jobb å identifisere et element i en database. Å ha denne primærnøkkelen som NULL betyr jo at vi ikke kan identifisere raden, defor gir det lite mening å sette en primærnøkkel som NULL
 
 ## f)
 I min implementasjon så brukte jeg et auto increment tall som id, hvis man brukte en annen implementasjon (som kombinasjon av adresse og navn) kunne update cascade vært nødvendig på flere steder, med det unnagjort kan vi se på vært tilfelle om vi burde bruke `ON DELETE`/`UPDATE CASCADE`
