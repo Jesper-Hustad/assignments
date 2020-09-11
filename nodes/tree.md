@@ -1,6 +1,6 @@
 # Øving 3
 
-## Deloppgave 1, lenka lister  
+# Deloppgave 1, lenka lister  
 Fra de forrige arbeidskravene har jeg blitt inspirert til å implementere funksjonene på en rekursiv måte.  
 
 
@@ -99,8 +99,13 @@ calcBigNums("840000000000000200000 - 100000000007000060004")
     = 739999999993000139996
     
 
+
+
 ---------
-## Deloppgave 2, trær  
+
+
+
+# Deloppgave 2, trær  
 
 
 Her brukte jeg bare et object/dict for å representere en node i treet.  
@@ -143,9 +148,15 @@ def makeTree(words):
     printTree(tree_layers)
 ```
 
-### Visualisering (pretty print)
+### Pretty print kode
+<details>
+  <summary>
+        Se kode
+  </summary>
+  
+  
 
-
+  
 ```python
 def getNodeAttr(node, attr, default=None):
     if node is None: return default
@@ -169,6 +180,14 @@ def printTree(tree_layers):
         tree_layer = ['{:^{}s}'.format(v, width) for v in level]
         print( "".join(tree_layer) + "\n\n")
 ```
+  
+</details>
+
+
+
+## Resultat
+
+
 
 
 ```python
