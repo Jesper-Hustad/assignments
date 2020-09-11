@@ -1,11 +1,12 @@
 # Øving 3
 
-
-
 ## Deloppgave 1, lenka lister  
-<!-- Fra de forrige arbeidskravene har jeg blitt inspirert til å implementere funksjonene på en rekursiv måte.  
-Brukte en "getattr()" metode som man kan sette en default value for (f.eks. 0 eller None), dette gjorde at jeg ikke måtte implementere masse ekstra kode for å sjekke om atributtene eksisterte hele tiden.  
-Brukte et bilotek som heter pyllist (Python Linked List) for lenka lister, denne hadde en hjelpsom funksjon som omgjorde en array til lenka liste som sparte mye tid/kode. -->
+Fra de forrige arbeidskravene har jeg blitt inspirert til å implementere funksjonene på en rekursiv måte.  
+
+
+```python
+from pyllist import dllist, dllistnode
+```
 
 ### Lenka Lister Addisjon
 
@@ -29,7 +30,6 @@ def addLinked(a, b, carry=0, result=dllist()):
 #   run process again on next number
     return addLinked(nextA, nextB, nextCarry, result)
 ```
-
 ### Lenka Lister Subtraksjon
 
 ```python
@@ -53,7 +53,6 @@ def diffLinked(a, b, loans=False, result=dllist()):
 
     return diffLinked(nextA, nextB, loans, result)
 ```
-
 ### Implementasjon av funksjonene
 
 ```python
@@ -63,7 +62,6 @@ def calcBigNums(arg):
     args = arg.split(" ")
     numOne, operator, numTwo = args[0], args[1], args[2]
     
-#   using pyllist to convert string to linked list
     n1 = dllist([int(n) for n in list(numOne)])
     n2 = dllist([int(n) for n in list(numTwo)])
     
@@ -76,7 +74,7 @@ def calcBigNums(arg):
     longest = len(max(nums, key=len))
     ops = [" ", operator, "="]
     
-    for i in range(3): print('{} {:>{fill}}'.format(ops[i], nums[i], fill=longest))
+    for i in range(3): print('{} {:>{fill}}'.format(ops[i] ,nums[i] , fill=longest))
 ```
 
 ## Resultat
@@ -101,3 +99,103 @@ calcBigNums("840000000000000200000 - 100000000007000060004")
     = 739999999993000139996
     
 
+---------
+## Deloppgave 2, trær  
+
+
+Her brukte jeg bare et object/dict for å representere en node i treet.  
+Gikk for rekusjon igjen fordi det føltes naturlig for mange av oppgavene.
+
+### Noder
+
+
+```python
+def Node(val):
+    return {"val": val, "a": None, "b": None}
+```
+
+### Legge til noder
+
+
+```python
+def addNode(val, head):
+    
+#   Compare value with current node value
+    branch = "a" if val < head['val'] else "b"
+
+#   There is already a node in branch
+    if head[branch] is not None: return addNode(val, head[branch])
+
+#   Set new branch with val
+    head[branch] = Node(val)
+
+    
+def makeTree(words):
+    
+    args = words.split(" ")
+
+#   create tree
+    head = Node(args[0])
+    for a in range(1, len(args)): addNode(args[a], head)
+    
+#   parse and pretty print
+    tree_layers = treeParse(head)
+    printTree(tree_layers)
+```
+
+### Visualisering (pretty print)
+
+
+```python
+def getNodeAttr(node, attr, default=None):
+    if node is None: return default
+    return node[attr]
+
+def treeParse(node, lev = 0, result={}):
+    
+    result[str(lev)] = result.get(str(lev),[]) +  [getVal(node)]
+
+#   max recursion depth reached
+    if lev > 4: return
+    
+    treeParse(getNodeAttr(node,'a',None), lev + 1)
+    treeParse(getNodeAttr(node,'b',None), lev + 1)
+    return result.values()
+
+def printTree(tree_layers):
+    full_width = 64
+    for level in tree_layers:
+        width = int(full_width / len(level))
+        tree_layer = ['{:^{}s}'.format(v, width) for v in level]
+        print( "".join(tree_layer) + "\n\n")
+```
+
+
+```python
+makeTree("hode bein hals arm tann hånd tå")
+```
+
+                                  hode                              
+    
+    
+                  bein                            tann              
+    
+    
+          arm             hals            hånd             tå       
+    
+    
+
+```python
+makeTree("f d h b e g i a c")
+```
+
+                                   f                                
+    
+    
+                   d                               h                
+    
+    
+           b               e               g               i        
+    
+    
+       a       c                                                    
