@@ -13,6 +13,7 @@ Inkluderte derfor ikke antall bygg i borettslag og antal leligheter i bygg fordi
 
 ## b)
 
+Oversatt til relasjonsmodellen får vi da:
 
 >borettslag(<ins>id</ins>, navn, adresse, etableringsår)
 
