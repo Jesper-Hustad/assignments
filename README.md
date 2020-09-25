@@ -11,7 +11,7 @@ Just a little place where i host all the assignments
 
 - [Øving 3](https://jesper-hustad.github.io/AlgDat/nodes/tree.html)
 
-
+- [Øving 4](https://jesper-hustad.github.io/AlgDat/hashmap/Hashtable.html)
 
 
 ## Notes
