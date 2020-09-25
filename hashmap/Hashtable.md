@@ -47,6 +47,7 @@ print("\ndata:")
 print(f"{collisions = }")
 print(f"{lastfaktor = }")
 ```
+## Resultater
 
     Kollisjon Morten Stavik Eggen - Torbjørn Bakke
     Kollisjon Sigmund Ole Granaas - Henrik Tengs Hafsø
@@ -118,8 +119,8 @@ def putInNative(hashmap, value):
     hashmap[value] = True
 ```
 
-### Utskrivingkode
-
+### Utskrivingkode  
+Fordi jeg brukte python så tokk det veldig lang tid med en hashtabell med 10 millioner tall, så valgte 1 million istedenfor
 
 ```python
 sizeList = 10**6
@@ -152,6 +153,9 @@ timeTaken = time.time() - start_time
 print("\nNative hashmap i python:")
 print(f"{timeTaken = }")
 ```
+
+## Resultater
+I mitt tilfelle er den innebygde hashmap funksjonen i python mye raskere, dette også fordi min implementasjon ikke ble særlig optimalisert
 
     Egen hashmap med dobbel hashing:
     timeTaken = 4.994411468505859
