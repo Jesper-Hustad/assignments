@@ -2,7 +2,7 @@
 # Uvektede grafer
 
 Main programmet tar en liste av uvekta grafer fra lenker, nedlaster dem, og finner sterkt sammenhengende komponenter.  
-```Python
+```python
 graphs = {
     'L7g1' : 'http://www.iie.ntnu.no/fag/_alg/uv-graf/L7g1',
     'L7g6' : 'http://www.iie.ntnu.no/fag/_alg/uv-graf/L7g6',
