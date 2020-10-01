@@ -21,5 +21,5 @@ Just a little place where i host all the assignments
 Used jupyter (great software) for some of these.  
 First øving has some bad plots, maybe i will redo it sometime (if you use the code implemented in øving 2 it will look a lot better).  
 
-It's just markdown files hosted using github pages.
+It's just markdown files hosted using github pages.  
 I ♥ Markdown
