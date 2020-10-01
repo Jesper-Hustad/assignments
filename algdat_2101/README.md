@@ -12,7 +12,6 @@
 ### [Graphs](https://jesper-hustad.github.io/AlgDat/graphs/graphs.html)
 
 
-## Notes
-
+## Comments  
 Used jupyter for some of these.  
 First øving has some bad plots, maybe i will redo it sometime (use the code implemented in øving 2 works a lot better).  
