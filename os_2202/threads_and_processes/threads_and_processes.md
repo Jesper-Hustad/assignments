@@ -5,7 +5,14 @@
 
 #### Question 1  
 
-A process is like the word implies a program running, they contain stuff like: code, data, files, registers, stack and threads.
+A process is like the word implies a program running, they contain stuff like: 
+
+- code
+- data 
+- files 
+- registers 
+- stack 
+- threads
 
 So a thread is a segment of a process and can be controlled by a scheduler
 
@@ -22,7 +29,6 @@ So a thread is a segment of a process and can be controlled by a scheduler
 
 It contains important information about the thread that the OS needs. One could look at the TCB as a manifesto for the thread. Some examples of values is: Thread ID, Thread state, Priority, and pointers.
 
--------
 
 #### 4. What is the difference between cooperative (voluntary) threading and pre-emptive (involuntary) thread-ing?  Briefly describe the steps necessary for a context switch for each case.
 
@@ -49,19 +55,18 @@ This seems to be the case at the start, but then we se the return codes are prin
 The only reason this could be happening must be that the threads are waiting/not executing immediately.
 
 
--------
+
 
 **2. Why does the order of the “Hello from thread X” messages change each time you run the program?**
 
 The OS is running threads pre-emptive and changing when they start on it's own accord/when it wants to.
 
--------
 
   **3. What is theminimum and maximum number of threads that could exist when thread 8 prints “Hello”?**
 
 From the execution we see the order is not strictly defined, therefore the thread could be started first or last. 0 or 9. There is no limit (well there is, but it's big) to how many threads can be paused, but there is a limit to how many can be executed at once.
 
--------
+
 
   **4. Explain the use of pthread join function call.**
 
@@ -73,13 +78,13 @@ It forces the given thread to execute before continuing with the code. Can't pri
        pthread_join() returns immediately.  The thread specified by thread
        must be joinable.
 
--------
+
 
   **5. What would happen if the function go is changed to behave.**
 
 Because the computer can do other things while the thread is "sleeping" the other threads would be completed while the n=5 thread is waiting.
 
--------
+
 
   **6. When pthread join returns for thread X, in what state is thread X?**
 
