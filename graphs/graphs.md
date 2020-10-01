@@ -21,7 +21,7 @@ for name, url in graphs.items():
 ## Resultater
 
 ### L7g1
-```Python
+```python
 Grafen L7g6 har 1 sterkt
 sammenhengende komponenter.
 
@@ -30,7 +30,7 @@ Komponent  Noder i komponenten
 ```
 
 ### L7g6
-```Python
+```python
 Grafen L7g6 har 5 sterkt
 sammenhengende komponenter.
 
@@ -43,7 +43,7 @@ Komponent  Noder i komponenten
 ```
 
 ### L7g2
-```Python
+```python
 Grafen L7g6 har 26 sterkt
 sammenhengende komponenter.
 
@@ -77,7 +77,7 @@ Komponent  Noder i komponenten
 ```
 
 ### L7g5
-```Python
+```python
 Grafen L7g6 har 7 sterkt
 sammenhengende komponenter.
 
@@ -95,7 +95,7 @@ Komponent  Noder i komponenten
 
 Som man kan se så blir `dfs` ganske enkelt implementert i python, såklart gjør jo denne koden ingenting for oss akkurat nå. Videre lager jeg en funkjson som jeg kaller `full_dfs`, denne går gjennom hele grafen og legger til kode i `dfs` som logger funnet tid og ferdig tid.
 
-```Python
+```python
 def dfs(graph, node):
     if node not in visited:
         visited.append(node)
@@ -106,7 +106,7 @@ def dfs(graph, node):
 ## Complete graph search
 Here we add code to get the order nodes are completed (`completed_order`) and the nodes found in every depth first search (`search_finds`). These are the requirements to use the algorithm given in the book to find scc's.
 
-```Python
+```python
 def full_dfs(graph, order):
 
     # ferdig tid
@@ -148,7 +148,7 @@ def full_dfs(graph, order):
 
 This is where the algorithm given in the book is implemented. It's a bit long, but the algorithm has a many steps so i don't see many ways to simplify further. Tried to comment the function so if you are following along with the book it's recognizable.
 
-```Python
+```python
 def scc(edges_table):
 
     # split by newline, then by space, removing empty along the way
@@ -184,7 +184,7 @@ def scc(edges_table):
 
 
 `edgesToGraph` creates dictonary (hashmap) where key is a node and value is array of edges to other nodes
-```Python
+```python
 def edgesToGraph(edges, n):
 
     graph = {}
@@ -208,7 +208,7 @@ Dette er kjedelige saker som ikke er så relevant for fullføringen av oppgaven.
   <summary>Kjedelig kode</summary>
   
   
-```Python
+```python
 import requests
 def wget(url):
     return requests.get(url, allow_redirects=True).text
