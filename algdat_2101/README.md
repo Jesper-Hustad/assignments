@@ -5,11 +5,11 @@
 
 ### 2. [Sorting](https://jesper-hustad.github.io/AlgDat/sorting/Sorting.html)  
 
-### 3. [Nodes](https://jesper-hustad.github.io/AlgDat/nodes/tree.html)  
+### 3. [Lists and Trees](https://jesper-hustad.github.io/AlgDat/nodes/tree.html)  
 
-### 4. [Hashmap](https://jesper-hustad.github.io/AlgDat/hashmap/Hashtable.html)  
+### 4. [Hashtables](https://jesper-hustad.github.io/AlgDat/hashmap/Hashtable.html)  
 
-### 5. [Graphs](https://jesper-hustad.github.io/AlgDat/graphs/graphs.html)  
+### 5. [Unweighted Graph](https://jesper-hustad.github.io/AlgDat/graphs/graphs.html)  
 
 
 ## Comments  
