@@ -11,8 +11,6 @@ graphs = {
     7 : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg2'
 }
 
-# start_node = 1
-
 for start_node, url in graphs.items():
     graph_string = wget(url)
     graph = build_graph(graph_string)
