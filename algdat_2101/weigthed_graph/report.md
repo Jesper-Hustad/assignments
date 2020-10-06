@@ -6,17 +6,18 @@ Funker også på vg3 og vg4, men utskriften blir veldig lang så hadde vært upr
 ## Main
 ```python
 graphs = {
-    'vg1' : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg1',
-    'vg5' : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg5',
-    'vg2' : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg2'
+    1 : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg1',
+    0 : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg5',
+    7 : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg2'
 }
 
-start_node = 1
+# start_node = 1
 
-for name, url in graphs.items():
+for start_node, url in graphs.items():
     graph_string = wget(url)
     graph = build_graph(graph_string)
     result = dijkstra(graph, start_node)
+    name = url.split('/')[-1]
     pretty_print(result, start_node, name)
 
 ```
@@ -34,69 +35,69 @@ Node  forgjenger   distanse
 ```
 
 ```python
-Dijkstras algoritme på vg5
+Dijkstras algoritme på vg5 
 Node  forgjenger   distanse
-   0           1          2
-   1       start          0
-   2           4          4
-   3           2          5
-   4           0          4
+   0       start          0
+   1              nåes ikke
+   2           4          2
+   3           2          3
+   4           0          2
 ```
 
 
 ```python
-Dijkstras algoritme på vg2
+Dijkstras algoritme på vg2 
 Node  forgjenger   distanse
    0              nåes ikke
-   1       start          0
-   2           6       1143
-   3           1          8
-   4          49        129
-   5              nåes ikke
-   6          33       1142
-   7              nåes ikke
-   8          15        909
-   9          27        910
+   1              nåes ikke
+   2           6         17
+   3          19         23
+   4          49         19
+   5          25          9
+   6          33         16
+   7       start          0
+   8              nåes ikke
+   9          36         88
   10              nåes ikke
-  11          18        967
-  12          20        906
-  13          26        132
-  14          17         42
-  15          20        905
+  11              nåes ikke
+  12              nåes ikke
+  13           7          3
+  14          28         13
+  15              nåes ikke
   16              nåes ikke
-  17           1          9
-  18          28        900
-  19          17         21
-  20          18        904
-  21          19        119
-  22           8        932
+  17           6         18
+  18          28        790
+  19          24         19
+  20              nåes ikke
+  21           5          9
+  22          36         14
   23              nåes ikke
-  24          14         50
-  25              nåes ikke
-  26          28        131
-  27          15        908
-  28          21        123
-  29          38         58
+  24          21         16
+  25           7          7
+  26          28         21
+  27              nåes ikke
+  28          21         13
+  29           2         40
   30              nåes ikke
-  31          17         11
-  32           1          7
-  33          36       1139
-  34          14         50
-  35          43       1231
-  36          15       1138
-  37          28        130
-  38          34         58
-  39          12        987
-  40          29         59
+  31          25          9
+  32              nåes ikke
+  33          36         13
+  34          14         21
+  35              nåes ikke
+  36           5         12
+  37          28         20
+  38          34         29
+  39              nåes ikke
+  40          49         11
   41              nåes ikke
   42              nåes ikke
-  43           6       1154
-  44          19         22
-  45          20        913
-  46           1          0
-  47           3         10
-  48          24         51
-  49          21        121
+  43           6         28
+  44          19         20
+  45              nåes ikke
+  46          31         11
+  47          21         11
+  48          24         17
+  49          21         11
 ```
 
 

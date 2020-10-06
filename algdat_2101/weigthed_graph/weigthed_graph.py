@@ -77,18 +77,17 @@ def pretty_print(results, source, name):
         n += 1
 
 graphs = {
-    'vg1' : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg1',
-    'vg5' : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg5',
-    'vg2' : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg2',
-    # 'vg4' : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg4'
+    1 : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg1',
+    0 : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg5',
+    7 : 'http://www.iie.ntnu.no/fag/_alg/v-graf/vg2'
 }
 
-start_node = 1
 
-for name, url in graphs.items():
+for start_node, url in graphs.items():
     graph_string = wget(url)
     graph = build_graph(graph_string)
     result = dijkstra(graph, start_node)
+    name = url.split('/')[-1]
     pretty_print(result, start_node, name)
 
 
