@@ -1,12 +1,10 @@
 ### Øving 7
 # Komprimering
-I etterkant kan det reflekteres på klokheten av å gjøre denne oppgaven i python. Det var mulig, men følte at verktøystøtte ikke var like god i python i forhold til de forrige øvningene. 
-
-Kompleksiteten på oppgaven begynner også å stresse svakheten av å bruke et skriptspråk. Organisasjon blir også et svaktpunkt hvor man begynner å savne et mer OOP språk som er hvorfor jeg valgte å implementere en klasse for denne øvingen.
+Dette er komprimeringsalgoritmen som implementerer Lempel-Ziv og Huffman koding og lagrer til en fil med format `.lzhf`
 
 
 ## Skjermdump
-Viser filstørrelser for originalfil, komprimert fil og utpakket fil:
+Filstørrelser for originalfil, komprimert fil og utpakket fil:
 
 ![](skjermdump.jpg)
 
@@ -254,3 +252,10 @@ def bin_pad(number, padding):
 
 
 ```
+
+
+## Notater
+
+I etterkant kan det reflekteres på klokheten av å gjøre denne oppgaven i python. Det var mulig, men følte at verktøystøtte ikke var like god i python i forhold til de forrige øvningene. 
+
+Kompleksiteten på oppgaven begynner også å stresse svakheten av å bruke et skriptspråk. Organisasjon blir også et svaktpunkt hvor man begynner å savne et mer OOP språk som er hvorfor jeg valgte å implementere en klasse for denne øvingen.
