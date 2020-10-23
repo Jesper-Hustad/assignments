@@ -1,19 +1,18 @@
 ### Øving 7
 # Komprimering
-I etterkant kan det reflekteres på klokheten av å gjøre denne oppgaven i python. Det var mulig, men følte at verktøystøtte ikke var like god i python i forhold til de forrige øvningene. 
-
-Kompleksiteten på oppgaven begynner også å stresse svakheten av å bruke et skriptspråk. Organisasjon blir også et svaktpunkt hvor man begynner å savne et mer OOP språk som er hvorfor jeg valgte å implementere en klasse for denne øvingen.
+Dette er komprimeringsalgoritmen som implementerer Lempel-Ziv og Huffman koding og lagrer til en fil med format `.lzhf`
 
 
 ## Skjermdump
-Viser filstørrelser for originalfil, komprimert fil og utpakket fil:
+Filstørrelser for originalfil, komprimert fil og utpakket fil:
 
 ![](skjermdump.jpg)
 
 ## Video av kode i bruk
 Jeg tok et lite opptak av terminalen hvor jeg komprimerer 'diverse.txt' til 'diverse.txt.lzhf' med 25.5% reduksjon i størrelse, deretter dekomprimerer jeg filen og bruker fc for å vise at den dekomprimerte filen er identisk til orginalen.
 
-[![video av fungerende program](https://img.youtube.com/vi/SwKN6W9s-s0/0.jpg)](https://www.youtube.com/watch?v=SwKN6W9s-s0)
+[![video av fungerende program](https://img.youtube.com/vi/SwKN6W9s-s0/0.jpg)](https://www.youtube.com/watch?v=SwKN6W9s-s0)  
+*(Klikk på bilde for å bli sent til YouTube)*
 
 -----
 
@@ -254,3 +253,10 @@ def bin_pad(number, padding):
 
 
 ```
+
+
+## Notater
+
+I etterkant kan det reflekteres på klokheten av å gjøre denne oppgaven i python. Det var mulig, men følte at verktøystøtte ikke var like god i python i forhold til de forrige øvningene. 
+
+Kompleksiteten på oppgaven begynner også å stresse svakheten av å bruke et skriptspråk. Organisasjon blir også et svaktpunkt hvor man begynner å savne et mer OOP språk som er hvorfor jeg valgte å implementere en klasse for denne øvingen.
