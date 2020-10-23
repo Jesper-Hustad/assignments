@@ -9,7 +9,7 @@ Filstørrelser for originalfil, komprimert fil og utpakket fil:
 ![](skjermdump.jpg)
 
 ## Video av kode i bruk
-Jeg tok et lite opptak av terminalen hvor jeg komprimerer 'diverse.txt' til 'diverse.txt.lzhf' med 25.5% reduksjon i størrelse, deretter dekomprimerer jeg filen og bruker fc for å vise at den dekomprimerte filen er identisk til orginalen.
+vi tok et lite opptak av terminalen hvor vi komprimerer 'diverse.txt' til 'diverse.txt.lzhf' med 25.5% reduksjon i størrelse, deretter dekomprimerer vi filen og bruker fc for å vise at den dekomprimerte filen er identisk til orginalen.
 
 [![video av fungerende program](https://img.youtube.com/vi/SwKN6W9s-s0/0.jpg)](https://www.youtube.com/watch?v=SwKN6W9s-s0)  
 *(Klikk på bilde for å bli sent til YouTube)*
@@ -29,7 +29,7 @@ Her er python filen for compress og decompress og syntax for å kjøre dem henho
 
 ## Lempel-Ziv
 
-Denne algoritmen jobber bare med bytes og var derfor relativt enkelt å implementere. Valgte å bruke en byte for referanser som betyr at referansene blir korte, men jeg hadde allerede ytelsesproblemer med python så klager ikke.
+Denne algoritmen jobber bare med bytes og var derfor relativt enkelt å implementere. Valgte å bruke en byte for referanser som betyr at referansene blir korte, men vi hadde allerede ytelsesproblemer med python så klager ikke.
 
 ```python
 def lz_compress(byte_array):
@@ -98,7 +98,7 @@ def lz_decompress(byte_arr):
 ```
 -----
 ## Huffman coding
-Her måtte jeg 'get down in the nitty gritty' som man ville sagt, når man jobber med bits så må man forsikre at man alltid er i riktig posisjon, at variabler tar opp riktig mengde plass og at det kan gjøres om til bytes igjen til slutt.
+Her måtte vi 'get down in the nitty gritty' som man ville sagt, når man jobber med bits så må man forsikre at man alltid er i riktig posisjon, at variabler tar opp riktig mengde plass og at det kan gjøres om til bytes igjen til slutt.
 
 
 
@@ -259,4 +259,4 @@ def bin_pad(number, padding):
 
 I etterkant kan det reflekteres på klokheten av å gjøre denne oppgaven i python. Det var mulig, men følte at verktøystøtte ikke var like god i python i forhold til de forrige øvningene. 
 
-Kompleksiteten på oppgaven begynner også å stresse svakheten av å bruke et skriptspråk. Organisasjon blir også et svaktpunkt hvor man begynner å savne et mer OOP språk som er hvorfor jeg valgte å implementere en klasse for denne øvingen.
+Kompleksiteten på oppgaven begynner også å stresse svakheten av å bruke et skriptspråk. Organisasjon blir også et svaktpunkt hvor man begynner å savne et mer OOP språk som er hvorfor vi valgte å implementere en klasse for denne øvingen.
