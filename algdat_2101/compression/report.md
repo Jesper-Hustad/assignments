@@ -112,7 +112,7 @@ Her måtte vi 'get down in the nitty gritty' som man ville sagt, når man jobber
 
 - Null fyll som går fra 0-7 bits for å forsikre at filen kan lagres som bytes.
 
-Det finnes sikkert bedre måter å implementere fileformatet på, men denne fungerte for meg.
+Det finnes sikkert bedre måter å implementere fileformatet på, men denne fungerte for oss.
 
 ```python
 from bitstring import BitArray
