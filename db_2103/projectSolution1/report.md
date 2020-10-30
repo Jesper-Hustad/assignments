@@ -9,25 +9,25 @@
 
 ```
 bedrifter  (organisasjonsnr, bedrift_navn, telefon, epost)
-            ﹉﹉﹉﹉﹉﹉﹉﹉﹉
+            ﹉﹉﹉﹉﹉﹉﹉﹉
 
 kandidater (kandidat_id, fornavn, etternavn, telefon, epost)
-            ﹉﹉﹉﹉﹉﹉﹉
+            ﹉﹉﹉﹉﹉﹉
 
 kvalifikasjon (kvalifikasjon_id, beskrivelse)
-               ﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉
+               ﹉﹉﹉﹉﹉﹉﹉﹉﹉
 
 kvalifikasjon_kandidat (kandidat_id*, kvalifikasjon_id*)
-                        ﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉
+                        ﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉
 
 oppdarag (oppdaragsnummer, kandidat_id*, orginisasjonsnr*, kvalifikasjon_id*, 
-          ﹉﹉﹉﹉﹉﹉﹉﹉﹉ 
+          ﹉﹉﹉﹉﹉﹉﹉﹉
          planlagt_start_dato, planlagt_slutt_dato
          
          )
 
 ferdig_oppdrag (oppdragsnummer, virkelig_start_dato, virkelig_slutt_dato, timer_arbeidet)
-                ﹉﹉﹉﹉﹉﹉﹉﹉﹉
+                ﹉﹉﹉﹉﹉﹉﹉﹉
 ```
 
 ## Oppgave c)
