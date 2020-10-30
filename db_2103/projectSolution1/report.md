@@ -63,7 +63,7 @@ CREATE TABLE `oppdrag` (
   `oppdragsnummer` int PRIMARY KEY,
   `kandidat_id` int,
   `organisasjonsnr` varchar(255),
-  `obligatorisk_kvalifikasjon` varchar(255),
+  `obligatorisk_kvalifikasjon` int,
   `planlagt_start_dato` date,
   `planlagt_slutt_dato` date
 );
