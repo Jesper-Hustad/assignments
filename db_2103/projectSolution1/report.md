@@ -63,7 +63,7 @@ CREATE TABLE `oppdrag` (
   `oppdragsnummer` int PRIMARY KEY,
   `kandidat_id` int,
   `organisasjonsnr` varchar(255),
-  `obligatorisk_kvalifikasjon` varchar(255),
+  `obligatorisk_kvalifikasjon` int,
   `planlagt_start_dato` date,
   `planlagt_slutt_dato` date
 );
@@ -82,6 +82,8 @@ ALTER TABLE `kvalifikasjon_kandidat` ADD FOREIGN KEY (`kvalifikasjon_id`) REFERE
 ALTER TABLE `oppdrag` ADD FOREIGN KEY (`kandidat_id`) REFERENCES `kandidater` (`kandidat_id`);
 
 ALTER TABLE `oppdrag` ADD FOREIGN KEY (`organisasjonsnr`) REFERENCES `bedrifter` (`organisasjonsnr`);
+
+ALTER TABLE `oppdrag` ADD FOREIGN KEY (`obligatorisk_kvalifikasjon`) REFERENCES `kvalifikasjon`(`kvalifikasjon_id`);
 
 ALTER TABLE `ferdig_oppdrag` ADD FOREIGN KEY (`oppdragsnummer`) REFERENCES `oppdrag` (`oppdragsnummer`);
 ```
