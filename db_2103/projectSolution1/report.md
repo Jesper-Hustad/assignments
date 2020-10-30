@@ -83,6 +83,8 @@ ALTER TABLE `oppdrag` ADD FOREIGN KEY (`kandidat_id`) REFERENCES `kandidater` (`
 
 ALTER TABLE `oppdrag` ADD FOREIGN KEY (`organisasjonsnr`) REFERENCES `bedrifter` (`organisasjonsnr`);
 
+ALTER TABLE `oppdrag` ADD FOREIGN KEY (`obligatorisk_kvalifikasjon`) REFERENCES `kvalifikasjon`(`kvalifikasjon_id`);
+
 ALTER TABLE `ferdig_oppdrag` ADD FOREIGN KEY (`oppdragsnummer`) REFERENCES `oppdrag` (`oppdragsnummer`);
 ```
 
