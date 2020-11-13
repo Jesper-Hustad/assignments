@@ -178,6 +178,16 @@ LEFT JOIN `user_assignment` ON user_assignment.user_id = user.user_id
 LEFT JOIN `assignment` ON user_assignment.assignment_id = assignment.assignment_id
 ```
 
+
+
+## Erfaringer
+
+Når jeg startet med mindommer applikasjonen hadde vi ikke hatt noe med databaser å gjøre. Jeg viste ingenting om 3NF og bare løste problemer som de kom. 
+Nå med mer kunnskap har jeg en versjon som kan skaleres og er mer strukturert. Det hjelper også å ha jobbet med problemet og fått en bedre forståelse over hva som egentlig trengs å løses. Videre hadde jeg bygget hele websiden fra bunnen av med det jeg har lært og tror det kommer da til å være et mye mer stabilt og brukbart system.
+
+I noen av spørringene må man joine mange tabeller for å komme frem til det man vil ha, men for det problemet som jeg prøver å løse må det være slik for å beholde det skalerbart.
+
+
 ## Løsning med XML
 XML passer bra til data som ikke har en fast struktur. Hvis vi tenker oss i situasjonen av systemet implementert i mindommer så kunne for eksempel faktura ha en XML fil som inneholder alle kostnader i forskjellige regninger. Hvis for eksempel regninger skal kunne være veldig forskjellige å ha mange felt som brukes i forskjellige situasjoner hadde det tilslutt vært veldig mange tomme felt i SQL implementasjonen. 
 
