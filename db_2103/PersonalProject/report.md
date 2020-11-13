@@ -177,3 +177,8 @@ SELECT user.*, assignment.description FROM `user`
 LEFT JOIN `user_assignment` ON user_assignment.user_id = user.user_id
 LEFT JOIN `assignment` ON user_assignment.assignment_id = assignment.assignment_id
 ```
+
+## Løsning med XML
+XML passer bra til data som ikke har en fast struktur. Hvis vi tenker oss i situasjonen av systemet implementert i mindommer så kunne for eksempel faktura ha en XML fil som inneholder alle kostnader i forskjellige regninger. Hvis for eksempel regninger skal kunne være veldig forskjellige å ha mange felt som brukes i forskjellige situasjoner hadde det tilslutt vært veldig mange tomme felt i SQL implementasjonen. 
+
+Vi ser også at faktura felt ikke trenger å jobbe sammen med andre deler av databasen så dette er også et godt tegn på at XML passer godt i denne situasjone.
