@@ -187,6 +187,18 @@ Nå med mer kunnskap har jeg en versjon som kan skaleres og er mer strukturert. 
 
 I noen av spørringene må man joine mange tabeller for å komme frem til det man vil ha, men for det problemet som jeg prøver å løse må det være slik for å beholde det skalerbart.
 
+Her er noen eksempler av mindommer websiden som bruker denne database løsningen
+
+## Eksempler
+
+![](eksempel1.png)  
+Undefined er ikke databasen, men frontend sin feil. Skyld på frontend!
+
+-------
+
+![](eksempel2.png)  
+Hva kasserer ser på websiden. Regninger fra databasen med summer.
+
 
 ## Løsning med XML
 XML passer bra til data som ikke har en fast struktur. Hvis vi tenker oss i situasjonen av systemet implementert i mindommer så kunne for eksempel faktura ha en XML fil som inneholder alle kostnader i forskjellige regninger. Hvis for eksempel regninger skal kunne være veldig forskjellige å ha mange felt som brukes i forskjellige situasjoner hadde det tilslutt vært veldig mange tomme felt i SQL implementasjonen. 
