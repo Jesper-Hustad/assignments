@@ -1,0 +1,69 @@
+body{
+  
+  /* background: rgb(116,221,236);
+  background: linear-gradient(90deg, rgba(116,221,236,1) 0%, rgba(47,153,186,1) 100%); */
+
+  background: rgb(128,239,255);
+  background: linear-gradient(90deg, rgba(128,239,255,1) 0%, rgba(49,179,221,1) 100%);
+/* 
+  background-image: url("/images/background.jpg");
+  background-repeat: repeat; */
+
+  width: 80%;
+  max-width: 70rem;
+  margin: auto;
+  /* border: 1px solid red */
+}
+
+
+h2, h3, h4{
+  margin-bottom: -0.25rem;
+}
+
+p {
+  font-size: large;
+}
+
+li{
+  font-size: large;
+}
+
+header{
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.ShowYouUnderstandBackgroundImage{
+  padding: 100px;
+  background-image: url(./ermahgerd.png);
+  border-color: rgb(151, 52, 197);
+  border-style: dashed;
+  border-width: 10px;
+
+  margin: 50px;
+}
+
+#specialFont{
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.headerLink{
+  font-size: large;
+  padding-left: 10px
+}
+
+.grid-container {
+  display: inline-grid;
+  grid-column-gap: 50px;
+
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* background-color: #2195f30e; */
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.137);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+}
