@@ -38,5 +38,8 @@ Her er en skjermdump av nettleseren som viser hva man får fra web tjeneren
 
 ----
 
-## Instruksjoner
-For å kjøre 
+## Kjør instruksjoner
+[Installer kompilert kode](https://downgit.github.io/#/home?url=https://github.com/Jesper-Hustad/assignments/tree/master/nt_2104/sockets/out) og unzip  
+Åpne opp mappen i terminalen  
+For webtjener oppgaven: `java WebTjener`  
+For Socket programmene: `java SocketTjener` og `java SocketKlient`
