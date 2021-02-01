@@ -13,9 +13,14 @@ Om du skriver tallet feil eller prøver en mattematisk operasjon som ikke finnes
 
 Tilslutt får du et valg om du ønsker å gjøre flere operasjoner, skriver du `Y` (yes) går programmet i en løkke slik at flere regnestykker kan gjøres, alt annet  slutter koblingen.
 
+Her er utskriften fra kjøring av klient programmet i terminalen, når programmet spurte først etter tall nr 1 skrev jeg `Ikke et tall` og tjeneren ser at dette er feil format og spør brukeren om å skrive tallet på nytt. Fordi tallet i programmet er en double kan tall med desimaler brukes:
+
+![](./matteProgram.png)
+
 
 ### [Tjener kode](./src/SocketTjener.java)
 ### [Klient kode](./src/SocketKlient.java)  
+
 
 ------
 
