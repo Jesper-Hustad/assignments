@@ -45,7 +45,7 @@ Slutter serveren
 
 ## Oppgave 2 - TLS/SSL 
 
-Etter å ha satt opp java klassene og keys kjører vi serveren med 
+Etter å ha satt opp java klassene og keys med keytool kjører vi serveren med 
 ```
 java 
   -Djavax.net.ssl.keystore="serverkeystore.jks" 
