@@ -43,22 +43,22 @@ public class LibraryController {
 
 
 //  book
-    @PostMapping("/book")
+    @PostMapping("/books")
     public void bookCreate(@RequestBody Book book){
         this.service.bookCreate(book);
     }
 
-    @GetMapping("/book/{id}")
+    @GetMapping("/books/{id}")
     public Optional<Book> bookRead(@PathVariable String id){
         return this.service.bookRead(id);
     }
 
-    @PutMapping("/book")
+    @PutMapping("/books")
     public void bookUpdate(@RequestBody Book book){
         this.service.bookUpdate(book);
     }
 
-    @DeleteMapping("/book/{id}")
+    @DeleteMapping("/books/{id}")
     public void bookDelete(@PathVariable String id){
         this.service.bookDelete(id);
     }
