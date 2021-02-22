@@ -145,7 +145,7 @@ skriveren.close();
 forbindelse.close();
 ```
 
-*Klient*
+*Tjener*
 ```java
 ServerSocket tjener = new ServerSocket(PORTNR);
 
