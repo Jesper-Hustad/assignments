@@ -99,6 +99,6 @@ override fun run() {
 
 Dette er resultatet: `2 5 11 7 13 19 3 17 23`
 
-Vi ser at tråd 2 finner primtallene: `2 5 11` først, etter dette finner tråd 1: `7 13 19`, tråd 0 finner: `3` og tilslutt finner tråd 2: `17 23`
+Vi ser at tråd 2 finner primtallene: `2 5 11` først, etter dette finner tråd 1: `7 13 19`, tråd 0 finner: `3` og til slutt finner tråd 2: `17 23`
 
 Dette forteller oss at trådene jobber samtidig. Rekkefølgen er ikke konstant når du kjører programmet flere ganger som er forventet fordi operativsystemet velger forskjellige rekkefølger basert på hvilken del av prosessoren er ledig.
