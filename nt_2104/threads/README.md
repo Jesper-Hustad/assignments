@@ -39,7 +39,7 @@ internal class PrimeThread(var lowerBound: Int, var upperBound: Int, var threadI
 private fun isPrime(n: Int): Boolean = if (n < 2) false else (2..n / 2).none { n % it == 0 }
 ```
 ## Hvordan å kjøre programmet
-Kotlin er basert på JVM, så jeg har kompilert det til en jar som du kan nedlaste [her]().  
+Kotlin er basert på JVM, så jeg har kompilert det til en jar som du kan nedlaste [her](https://github.com/Jesper-Hustad/assignments/raw/master/nt_2104/threads/program.jar).  
 Slik kalkulerer du alle primtall med 3 tråder mellom 0 og 25.
 
 Argumenter:
