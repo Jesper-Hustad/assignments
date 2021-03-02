@@ -86,6 +86,10 @@ Når vi skal legge til en oppgave for workeren trenger vi først å låse låsen
 
 ```Kotlin
 fun post(f: () -> Unit) {
+        while(lock.hasQueuedThreads()){
+            sleep(10)
+        }
+
         lock.lock()
         que.add(f)
         jobsAvailableCondition.signal()
@@ -134,9 +138,23 @@ class Workers(private val threadCount : Int) {
     
     fun start() = threads.forEach { it.start() }
 
-    fun post(f: () -> Unit) {
+      fun post(f: () -> Unit) {
+        while(lock.hasQueuedThreads()){
+            sleep(10)
+        }
         lock.lock()
         que.add(f)
+        jobsAvailableCondition.signal()
+        lock.unlock()
+    }
+
+    fun post_timeout(f: () -> Unit, t: Long) {
+        while(lock.hasQueuedThreads()){
+            sleep(10)
+        }
+        lock.lock()
+        que.add(f)
+        jobsAvailableCondition.awaitNanos(t)
         jobsAvailableCondition.signal()
         lock.unlock()
     }
