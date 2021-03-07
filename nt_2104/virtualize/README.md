@@ -99,5 +99,11 @@ async function send_code(){
 }
 ```
 
-## Rå kode
-For denne oppgaven er det for mange filer for meg å lenke til så om du ønsker å se på koden er de tilgjengelig her i repoen hvor denne README filen er plassert.
+## Setup
+
+Etter å ha nedlastet zip filen [her](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/Jesper-Hustad/assignments/tree/master/nt_2104/virtualize) og pakket ut kjør disse komandoene:
+```
+cd virtualize
+npm install
+node program.js
+```
