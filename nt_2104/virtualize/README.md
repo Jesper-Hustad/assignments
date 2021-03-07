@@ -21,7 +21,7 @@ brukes)
 
 ## Løsning
 
-Jeg har lastet opp en video av websiden i bruk på YouTube, først kjører jeg en enkel "hello world", deretter et program som printer ut fibonacci sekvensen. Om en ny IP ikke har blitt satt for serveren min (uheldigvis ganske sansynlig) kan du teste websiden på JesperHustad.com
+Jeg har lastet opp en video av websiden i bruk på YouTube, først kjører jeg en enkel "hello world", deretter et program som printer ut fibonacci sekvensen.
 
 <!-- DIRECT YOUTUBE THUMBNAIL FALLBACK
 [![Video av virtualisering](https://img.youtube.com/vi/fmvWEYnWIlY/0.jpg)](https://youtu.be/fmvWEYnWIlY) -->
@@ -30,6 +30,8 @@ Jeg har lastet opp en video av websiden i bruk på YouTube, først kjører jeg e
 
 
 Trykk på bilde for å se YouTube videoen
+
+ Om en ny IP ikke har blitt satt for serveren min (uheldigvis ganske sansynlig) kan du teste websiden på JesperHustad.com
 
 ## Server siden
 
@@ -41,7 +43,7 @@ RUN javac Main.java
 CMD ["java", "Main"]
 ```
 
-På server siden så skrives brukes nodejs. Koden skrives til en temp filen og docker kompilerer og kjører koden. 
+På server siden brukes nodejs. Koden skrives til en temp fil, docker kompilerer og kjører koden. 
 
 ```javascript
 // compiles java code in docker container and returns result
@@ -96,3 +98,6 @@ async function send_code(){
     output.classList.toggle("loading")
 }
 ```
+
+## Rå kode
+For denne oppgaven er det for mange filer for meg å lenke til så om du ønsker å se på koden er de tilgjengelig her i repoen hvor denne README filen er plassert.
