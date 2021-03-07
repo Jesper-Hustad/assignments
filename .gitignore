@@ -1,3 +1,6 @@
 mysql-connector-java-8.0.22/
 .idea/
 node_modules/
+lib/
+out/
+.mvn/
