@@ -11,46 +11,45 @@
     
     <textarea id="code_input" style="width: 20rem; height: 10rem;"></textarea>
     <br><button onclick="send_code()">Compile and run</button>
-
-    <script>
-        async function send_code(){
-
-            const input = document.getElementById("code_input")
-            const output = document.getElementById("code_output")
-
-            // clear output and activate loading gif
-            output.textContent = ""
-            output.classList.toggle("loading")
-
-            // send code to server to compile
-            let raw_response = await fetch('/compile', {
-                method: 'POST', 
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({"code_input": input.value}),
-            })
-
-            // parse response
-            let code_output = (await raw_response.json()).code_output
-
-            // display code output and remove loading gif
-            document.getElementById("code_output").textContent = code_output
-            output.classList.toggle("loading")
-        }
-    </script>
     
     <br><br><div id="code_output" style="border: 1px solid rgb(40, 219, 40); width: 20rem; height: 10rem;"></div>
     
-    
-
-
 </body>
+	
+<script>
+	async function send_code(){
+
+	    const input = document.getElementById("code_input")
+	    const output = document.getElementById("code_output")
+
+	    // clear output and activate loading gif
+	    output.textContent = ""
+	    output.classList.toggle("loading")
+
+	    // send code to server to compile
+	    let raw_response = await fetch('/compile', {
+		method: 'POST', 
+		headers: {'Content-Type': 'application/json'},
+		body: JSON.stringify({"code_input": input.value}),
+	    })
+
+	    // parse response
+	    let code_output = (await raw_response.json()).code_output
+
+	    // display code output and remove loading gif
+	    document.getElementById("code_output").textContent = code_output
+	    output.classList.toggle("loading")
+	}
+</script>
 
 <style>
-    :root {font-family: Arial, Helvetica, sans-serif;}
+    :root {
+	    font-family: Arial, Helvetica, sans-serif;
+    }
     .loading{
         background-size: 3rem 3rem;
         background-repeat: no-repeat;
-	    background-image: url("https://i.gifer.com/ZZ5H.gif");
-        }
+	background-image: url("https://i.gifer.com/ZZ5H.gif");
+    }
 </style>
 </html>
