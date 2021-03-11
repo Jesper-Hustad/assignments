@@ -55,11 +55,34 @@ class Workers(private val threadCount : Int) {
 
     var stopFlag = false
 
+<<<<<<< HEAD
     private fun post(f: () -> Unit, t : Long) {
         lock.lock()
         que.add(f)
         jobsAvailableCondition.awaitNanos(t)
         jobsAvailableCondition.signalAll()
+=======
+    fun start() = threads.forEach { it.start() }
+
+      fun post(f: () -> Unit) {
+        while(lock.hasQueuedThreads()){
+            sleep(10)
+        }
+        lock.lock()
+        que.add(f)
+        jobsAvailableCondition.signal()
+        lock.unlock()
+    }
+
+    fun post_timeout(f: () -> Unit, t: Long) {
+        while(lock.hasQueuedThreads()){
+            sleep(10)
+        }
+        lock.lock()
+        que.add(f)
+        jobsAvailableCondition.awaitNanos(t)
+        jobsAvailableCondition.signal()
+>>>>>>> c5a34ea65d0f251d1bf5b8fb3c7992f97728d677
         lock.unlock()
     }
 
