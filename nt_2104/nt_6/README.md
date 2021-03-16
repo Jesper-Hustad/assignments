@@ -13,7 +13,7 @@ Ta utgangspunkt i  rfc6455 og programmer et WebSocket-server bibliotek som gjenn
 
 Med WebSocket-server biblioteket skal du lage et WebSocket endepunkt som kan motta melding fra en klient, og deretter sender mottatt melding til alle tilknyttede klienter.
 
-Du velger selv programmeringsspråk, men et alternativ er å starte med inklurdert serverside JavaScript-kode:
+Du velger selv programmeringsspråk, men et alternativ er å starte med inklurdert serverside JavaScript-kode.
 
 
 ## Løsning
