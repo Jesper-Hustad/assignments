@@ -26,12 +26,19 @@ Denne oppgaven består i utgangspunktet av disse 3 delene:
 
 I denne oppgaven har jeg delt disse i vær sin funksjon så vi kan se litt nærmere på dem.
 
+Jeg har lastet opp en demo av programmet i bruk med wireshark capture som du kan se på her:
+
+<!-- FALLBACK -->
+<!-- [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/10aTuSiPAww/0.jpg)](https://www.youtube.com/watch?v=10aTuSiPAww) -->
+
+[![KLIKK PÅ MEG](https://i.imgur.com/m2BOIAL.png)](https://www.youtube.com/watch?v=10aTuSiPAww)
+
 ## Handshake
 Her handler det om å lese `Sec-WebSocket-Key` og følge websocket spec med denne nøkkelen.
 
 I funksjonen `generateHandshakeHeaders()` blir respons headers laget.
 
-Crypto modulen i NodeJS hjelpe oss med SHA og base64 omgjøring.
+Crypto modulen i NodeJS hjelper oss med SHA og base64 omgjøring.
 
 ```javascript
 function generateHandshakeHeaders(headers){
@@ -131,9 +138,11 @@ function handleWebSocketDataConnection(connection, data){
 
 ## Setup
 
-Nedlast koden [her]() og unzip
+Nedlast koden [her](https://downgit.github.io/#/home?url=https://github.com/Jesper-Hustad/assignments/tree/master/nt_2104/nt_6) og unzip
 
 ```
 cd nt_6
 node program.js
 ```
+
+Du finner websiden på http://localhost:3002/
