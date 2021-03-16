@@ -31,7 +31,7 @@ Jeg har lastet opp en video av websiden i bruk på YouTube, først kjører jeg e
 
 Trykk på bilde for å se YouTube videoen
 
- Om en ny IP ikke har blitt satt for serveren min (uheldigvis ganske sansynlig) kan du teste websiden på JesperHustad.com
+ Om en ny IP ikke har blitt satt for serveren min (uheldigvis ganske sansynlig) kan du teste websiden på [JesperHustad.com](http://www.jesperhustad.com:3000/)
 
 ## Server siden
 
