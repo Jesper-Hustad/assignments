@@ -34,9 +34,15 @@ trening for videre arbeid.
 
 ## Løsning
 
+## [Klikk her for demo](https://jesper-hustad.github.io/assignments/fs_2105/4/index)
+
+[![](showcase.png)](https://jesper-hustad.github.io/assignments/fs_2105/4/index)
+
+## Forklaring
+
 Jeg valgte å dele kalkulatoren inn i 2 vue components, en kalkulator og knapp.
 
-![](showcase.png)
+
 
 ## Button
 I `button.vue` kan vi se hvordan knappen er programert.
@@ -132,3 +138,17 @@ numbers: '7 8 9 * 4 5 6 - 1 2 3 + 0 . CA = / ( ) %'.split(' ')
 ```
 
 ![](added-functionality.png)
+
+
+## Setup
+
+Nedlast prosjektet med git eller fra en zip fil [her](https://downgit.github.io/#/home?url=https://github.com/Jesper-Hustad/assignments/tree/master/fs_2105/4).
+
+Etter du har gjort dine endringer til koden kan du kjøre programmet ved å køre komandoene:
+
+```terminal
+npm install
+npm run dev
+
+~ Project is running at http://localhost:8080/
+```
