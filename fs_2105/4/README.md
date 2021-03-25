@@ -143,7 +143,7 @@ numbers: '7 8 9 * 4 5 6 - 1 2 3 + 0 . CA = / ( ) %'.split(' ')
 
 Nedlast prosjektet med git eller fra en zip fil [her](https://downgit.github.io/#/home?url=https://github.com/Jesper-Hustad/assignments/tree/master/fs_2105/4).
 
-Etter du har gjort dine endringer til koden kan du kjøre programmet ved å køre komandoene:
+Etter du har gjort dine endringer til koden kan du kjøre programmet med komandoene:
 
 ```terminal
 npm install
