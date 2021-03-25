@@ -34,9 +34,9 @@ trening for videre arbeid.
 
 ## Løsning
 
-## [Klikk her for demo](https://jesper-hustad.github.io/assignments/fs_2105/4/index)
+## [Klikk her for demo](https://jesper-hustad.github.io/assignments/fs_2105/4/index.html)
 
-[![](showcase.png)](https://jesper-hustad.github.io/assignments/fs_2105/4/index)
+[![](showcase.png)](https://jesper-hustad.github.io/assignments/fs_2105/4/index.html)
 
 ## Forklaring
 
