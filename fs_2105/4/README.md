@@ -94,7 +94,7 @@ export default {
 ...
 ```
 
-For å få kalkulasjoner til å funke er det implementert noen enkle funksjoner for å håndtere logikken. Her bruker vi `this.number` for som er en "state" lagret i kalkulatoren.
+For å få kalkulasjoner til å funke er det implementert noen enkle funksjoner for å håndtere logikken. Her bruker vi `this.number`, en "state" lagret i kalkulatoren.
 
 ```js
 buttonClicked(character) {
