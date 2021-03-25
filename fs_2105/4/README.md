@@ -36,7 +36,7 @@ trening for videre arbeid.
 
 ## [Klikk her for demo](https://jesper-hustad.github.io/assignments/fs_2105/4/index.html)
 
-[![](showcase.png)](https://jesper-hustad.github.io/assignments/fs_2105/4/index.html)
+<img src="showcase.png" width=400px>
 
 ## Forklaring
 
@@ -137,8 +137,7 @@ Her kan vi se med å bare legge til: `/ ( ) %` på numbers listen så har vi lag
 numbers: '7 8 9 * 4 5 6 - 1 2 3 + 0 . CA = / ( ) %'.split(' ')
 ```
 
-![](added-functionality.png)
-
+<img src="added-functionality.png" width=400px>
 
 ## Setup
 
