@@ -100,3 +100,24 @@ nettleseren?
 ## Løsning
 
 ### Finne passord ved å bruke nettleseren
+
+Vi kan bruke URLen: 
+`/NotSoSecureBank/webresources/user/[email here]` dette returnerer en JSON av bruker dataen.
+
+Postman applikasjonen kan være hjelpsom her.
+
+Her er resultatet fra GET request på URLen:
+
+```JSON
+{
+    "email": "123@hotmail.com",
+    "firstName": "Michal",
+    "lastName": "Panasewicz",
+    "password": "easyPassword"
+}
+```
+## Grove feil
+
+En grov feil med serveren er at **passordene er lagret i klartekst**. Passord burde aldri lagres i klar tekst, istedet burde man bruke SHA encoding med salt. Med denne metoden så kan en hacker selv etter å ha fått full tilgang til databasen ikke få passordene.
+
+At **prepareStatement ikke er brukt på alle SQL statements**. Vi ser for getTransaction metoden at dette blir brukt, men ikke på addUser metoden. Sikkerheten av en applikasjon er bare like god som dens svakeste ledd.
