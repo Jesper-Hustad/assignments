@@ -17,15 +17,15 @@ Fra Jquery dokumentasjonen kan vi se at .html() metoden åpner opp siden til cro
 
 Med metoden initTable så kan vi også å sende en beskrivelse med script i kan man få kode til kjøre på andre sine nettlesere.
 
-![](2021-04-09-12-42-35.png)
+![](assets/2021-04-09-12-42-35.png)
 
 Her ser vi hvordan dette kommer opp i HTMLen
 
-![](2021-04-09-12-44-01.png)
+![](assets/2021-04-09-12-44-01.png)
 
 Når en annen åpner opp siden får de dette:
 
-![](2021-04-09-12-43-26.png)
+![](assets/2021-04-09-12-43-26.png)
 
 ### Betaling som omdirigerer med cookie
 
@@ -45,7 +45,7 @@ Om vi ønsker å hente ut cookie data kan vi bruke document.cookie
 
 Her ser vi hvor man blir derigert etter man trykker på betaling knappen:
 
-![](2021-04-09-12-46-55.png)
+![](assets/2021-04-09-12-46-55.png)
 
 ## Oppgave 2 (A1)
 
@@ -61,7 +61,7 @@ Her ser vi hvor man blir derigert etter man trykker på betaling knappen:
 Passord blir ikke rengjort/escaped på serveren så her kan vi bruke SQLinjection.
 For eksempel på metoden addUser kan vi med et spesefikt passord lage vår egen query
 
-![](2021-04-09-12-49-00.png)
+![](assets/2021-04-09-12-49-00.png)
 
 For å gjennomføre en SQL injection legger vi passordet som:
 ```SQL
@@ -88,7 +88,7 @@ VALUES('123@hotmail.com', 'jesperfh@ntnu.no','hei hei lettjente penger',5000,'20
 
 Dette er resultatet:
 
-![](2021-04-09-12-52-41.png)
+![](assets/2021-04-09-12-52-41.png)
 
 ## Oppgave 3 (A7 og A2)
 
