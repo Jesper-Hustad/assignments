@@ -6,42 +6,52 @@ const port = process.env.PORT || 8080;
 
 app.use(express.static(__dirname + '/'));
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/index.html')
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/index.html')
 });
 
-app.get('/api/v1/equation', (req, res) => 
+app.get('/api/v1/equation', (req, res) =>
     res.json(calculate(req.query.equation))
 )
 
-function calculate(equation){
+const calculate = (equation, errorMsg = hasError(equation)) => (
+    {
+        "status": (errorMsg) ? "error" : "success",
+        "result": (errorMsg) ? errorMsg[0] : eval(equation)
+    })
 
-    if(equation.includes('/0')) 
-        return {"status" : "error", "result" : "Can't devide by zero"}
+const hasError = (equation) => Object.entries(
+    {
+        "Calculation is empty": hasNoCalculation,
+        "Can't divide by zero": hasDivisionByZero,
+        "Only one decimal allowed": hasMultipleDecimals,
+        "Must operate on number": hasDuplicateOperators,
+        "Must close parentheses": hasUnbalancedParentheses
+    })
+    .find(([_, failsTest]) => failsTest(equation))
 
+const hasNoCalculation = (equation) => equation
+    == ''
 
-    if(hasDuplicateOperators(equation)) 
-        return {"status" : "error", "result" : "must operate on number"}
+const hasDivisionByZero = (equation) => equation
+    .includes('/0')
 
-    return {"status" : "success", "result" : eval(equation)}
-}
+const hasMultipleDecimals = (equation) => equation
+    .split('')
+    .filter(i => i == '.').length > 1
 
-const hasDuplicateOperators = (equation) => {
-    const operators = "+-/*"
+const hasDuplicateOperators = (equation) => equation
+    .split('')
+    .map(i => "+-/*%.".includes(i))
+    .some((_, i, arr) => arr[i] && arr[i + 1])
 
-    let wasOperator = false
+const hasUnbalancedParentheses = (equation) => equation
+    .split('')
+    .filter(i => "()".includes(i))
+    .map(i => i == '(')
+    .map(i => i ? 1 : -1)
+    .reduce((i, j) => i + j, 0) != 0
 
-    for (const i of equation.split('')) {
-
-        const newChar = operators.includes(i) 
-
-        if(wasOperator && newChar) return true
-        
-        wasOperator = newChar
-    }
-
-    return false
-}
 
 app.listen(port);
 console.log('Server started at http://localhost:' + port);
