@@ -9,7 +9,7 @@ Denne øvingen er en enkel utvidelse av forrige øving, hvor du skal implementer
 En kan selv velge hvor enkelt eller vanskelig man vil gjøre dette. En måte å gjøre det enkelt på, er å si at man tillater kun én type regneoperasjon i gangen (bare divisjon, f.eks), og ha et rest-endepunkt for hver regneoperasjon (gange, dele, plusse og minuse (det er et ord, ikke slå det opp)). En er da nødt til å ha feilhåndtering med info til brukeren i kalkulatoren, om han/hun prøver å bruke flere operasjoner. Om du vil ha en mer avansert løsning som inneholder mer funksjonalitet, er dette selvsagt også lov :)
 
 ## Løsning
-Trykk på bildet for å se video demo.
+Trykk på bildet for å se video demo.  
 [![](screenshot.jpg)](https://www.youtube.com/watch?v=3dN9Lv7AnHU)
 
 ### Backend
