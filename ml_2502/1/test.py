@@ -4,8 +4,6 @@ import csv
 x_values = []
 y_values = []
 
-
-
 with open('length_weight.csv') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     next(spamreader)
@@ -53,7 +51,7 @@ model = LinearRegressionModel()
 optimizer = torch.optim.SGD([model.W, model.b], 0.01)
 for epoch in range(10):
     model.loss(x_train, y_train).backward()  # Compute loss gradients
-    optimizer.step()  # Perform optimization by adjusting W and b,
+    optimizerdff.step()  # Perform optimization by adjusting W and b,
     # similar to:
     # model.W -= model.W.grad * 0.01
     # model.b -= model.b.grad * 0.01

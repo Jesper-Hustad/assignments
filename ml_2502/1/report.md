@@ -28,3 +28,5 @@ observasjonene i [day_head_circumference.csv](day_head_circumference.csv)
 
 
 ## Løsning
+
+
