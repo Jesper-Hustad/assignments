@@ -23,7 +23,7 @@ Lag en lineær modell som predikerer vekt ut fra lengde gitt observasjonene i
 
 ### Løsning
 Ved bruk av stochastic gradient descent i pytorch kan vi finne en optimal løsning på 10000 epoker.
-Trykk på animasjonen for mer informasjon.
+Trykk på animasjonen for mer informasjon.  
 
 [![](assets/linear_regression_2d_live.gif)](a.ipynb)
 
@@ -42,7 +42,8 @@ observasjonene i [day_length_weight.csv](day_length_weight.csv)
 ### Løsning
 
 Ved å bruke samme formel med en lagt til dimensjon finner vi etter 1000 epoker det optimale planet gjennom punktene.
-Trykk på animasjonen for mer informasjon.
+Trykk på animasjonen for mer informasjon.  
+
 [![](assets/linear_regression_3d_live.gif)](b.ipynb)
 
 -----
@@ -55,7 +56,7 @@ observasjonene i [day_head_circumference.csv](day_head_circumference.csv)
 
 ### Løsning
 Ved å gjøre om predikatoren til: `20 * torch.sigmoid(x @ self.W + self.b) + 31` er en form for *ikke-lineær regresjon* oppnåd.  
-Etter 5 * 10^5 epoker med en steg lengde på 6 × 10^(-7) finner vi en tilnærmet løsning. Denne kalkulasjonen tar 4 minutt så her trengs mer optimalisering for å kalkulere bedre løsninger. Trykk på bilde under gfor mer informasjon.
+Etter 5 * 10^5 epoker med en steg lengde på 6 × 10^(-7) finner vi en tilnærmet løsning. Denne kalkulasjonen tar 4 minutt så her trengs mer optimalisering for å kalkulere bedre løsninger. Trykk på bilde under gfor mer informasjon.  
 
 [![](assets/non_linear_regression_2d.png)](c.ipynb)
 
