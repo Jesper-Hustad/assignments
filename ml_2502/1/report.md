@@ -1,10 +1,6 @@
 ## IDATT2502 Anvendt maskinlæring med prosjekt
 # Øving 1 - : Lineær regresjon
 
-
-## Notat
-Koden er ikke r
-
 ## Oppgave
 
 Ta gjerne utgangspunkt i [linear-2d](https://gitlab.com/ntnu-tdat3025/regression/linear-2d).  
