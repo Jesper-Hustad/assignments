@@ -37,7 +37,7 @@ b = 3.80
 loss = 0.01
 ```
 
-[![](assets/b.png)](nand-operator.y)  
+[![](assets/b.png)](nand-operator.py)  
 Trykk bilde for å se koden
 
 
@@ -61,7 +61,7 @@ W2_init = [[1.0], [1.0]]
 b2_init = [[0.0]]
 ```
 
-[![](assets/c-1.png)](xor-operator.py])  
+[![](assets/c-1.png)](xor-operator.py)  
 
 
 
@@ -73,9 +73,9 @@ W2_init = [[1.0], [1.0]]
 b2_init = [[0.0]]
 ```
 
-[![](assets/c-2.png)](xor-operator.py])  
+[![](assets/c-2.png)](xor-operator.py)  
 
-Trykk på bildene for å se koden.
+Trykk bilde for å se koden.
 
 ## d) handskrevne tall modell:
 
