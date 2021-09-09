@@ -34,7 +34,7 @@ model = SigmoidModel()
 
 # Observed/training input and output
 x_train = torch.tensor([[0, 0], [0, 1], [1, 0], [1, 1]]).float()
-y_train = torch.tensor([[1], [0], [0], [0]]).float()
+y_train = torch.tensor([[1], [1], [1], [0]]).float()
 
 print(f"{x_train[0]}")
 print(f"{y_train[0]}")

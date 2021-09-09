@@ -31,10 +31,10 @@ Visualiser resultatet etter optimalisering av modellen.
 ### Løsning
 
 ```
-W = [ -8.53 ]
-    [ -8.53 ]
-b = 3.80
-loss = 0.01
+W = [ -7.31 ]
+    [ -7.31 ]
+b = 11.14
+loss = 0.02
 ```
 
 [![](assets/b.png)](nand-operator.py)  
