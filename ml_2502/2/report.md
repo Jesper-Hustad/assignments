@@ -1,8 +1,6 @@
 ## IDATT2502 Anvendt maskinlæring med prosjekt
 # Øving 2 - : Kunstlige nervale nettverk
 
-## Oppgave
-
 ## a) NOT-operator modell:
 
 ### Oppgave
@@ -37,7 +35,7 @@ b = 11.14
 loss = 0.02
 ```
 
-[![](assets/b.png)](nand-operator.py)  
+[![](assets/b.png)](b.py)  
 Trykk bilde for å se koden
 
 
@@ -61,7 +59,7 @@ W2_init = [[1.0], [1.0]]
 b2_init = [[0.0]]
 ```
 
-[![](assets/c-1.png)](xor-operator.py)  
+[![](assets/c-1.png)](c.py)  
 
 
 
@@ -73,11 +71,12 @@ W2_init = [[1.0], [1.0]]
 b2_init = [[0.0]]
 ```
 
-[![](assets/c-2.png)](xor-operator.py)  
+[![](assets/c-2.png)](c.py)  
 
 Trykk bilde for å se koden.
 
-## d) handskrevne tall modell:
+-----
+## d) Handskrevne tall modell:
 
 ### Oppgave
 
@@ -90,10 +89,13 @@ som viser W etter optimalisering
 
 ### Løsning
 
+```
+loss = 0.6633917689323425
+accuracy = 0.9172333478927612
+```
 
-
------
-
+[![](assets/d.png)](d.ipynb)  
+Trykk på bilde for å se koden.
 
 
 
