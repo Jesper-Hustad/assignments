@@ -69,10 +69,36 @@ hello world world world world world world world worl
 [Kode](b.py)
 
 ```Python
+index_to_char = list(' hatrcflmpson')
+index_to_emoji = ['🎩', '🐀', '🐱', '🏢', '🙃', '🧢', '👦']
 
+# identity matrix
+char_encodings = torch.eye(len(index_to_char)).numpy()
+emoji_encodings = torch.eye(len(index_to_emoji)).numpy()
+
+x_train = ...
+y_train = ...
+
+input_size = len(index_to_char)     # shape in
+encoding_size = len(index_to_emoji) # shape out
+
+model = LongShortTermMemoryModel(input_size, encoding_size)
 ```
 
 ```
+ht🎩   rt🎩   rats🎩   atc🎩   flap🎩   flat🎩   cap🎩   son🎩   
+ht🎩   rt🎩   rats🎩   atc🎩   flap🎩   flat🎩   cap🎩   son🎩   
+ht🎩   rt🎩   rats🎩   atc🎩   flap🎩   flat🎩   cap🧢   son🎩   
+ht🎩   rt🎩   rats🎩   atc🎩   flap🧢   flat🎩   cap🧢   son👦   
+ht🎩   rt🎩   rats🎩   atc🎩   flap🧢   flat🏢   cap🧢   son👦   
+ht🎩   rt🎩   rats🎩   atc🧢   flap🏢   flat🏢   cap🧢   son👦   
+ht🎩   rt🐀   rats🐀   atc🧢   flap🏢   flat🏢   cap🧢   son👦   
+ht🎩   rt🐀   rats🐀   atc🧢   flap🏢   flat🏢   cap🧢   son👦   
+ht🎩   rt🐀   rats🐀   atc🐱   flap🏢   flat🏢   cap🧢   son👦   
+ht🎩   rt🐀   rats🐀   atc🐱   flap🏢   flat🏢   cap🧢   son👦   
+ht🎩   rt🐀   rats🐀   atc🐱   flap🏢   flat🏢   cap🧢   son👦   
+ht🎩   rt🐀   rats🐀   atc🐀   flap🏢   flat🏢   cap🧢   son👦   
+ht🎩   rt🐀   rats🐀   atc🐀   flap🏢   flat🏢   cap🧢   son👦
 ```
 
 ------

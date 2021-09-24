@@ -68,7 +68,7 @@ y_train = torch.tensor([
     char_encodings[6], 
     char_encodings[3], 
     char_encodings[7], 
-    char_encodings[0]
+char_encodings[0]
     ])  # 'hello world '
 
 model = LongShortTermMemoryModel(encoding_size)
