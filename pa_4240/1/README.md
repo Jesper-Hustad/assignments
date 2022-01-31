@@ -7,18 +7,18 @@ Each task also has a libgdx .jar desktop version.
 
 
 ## Task 1  
-Single helicopter that bounces off edges.
+Single helicopter that bounces off edges.  
 ![](gifs/task1.gif)  
 
 ## Task 2
-Helicopter that follows touch input.
+Helicopter that follows touch input.  
 ![](gifs/task2.gif)  
 
 
 ## Task 3  
 Animated helicopters with random speed and direction.  
 Animation uses sprite sheet.  
-React when hitting eachother.
+React when hitting eachother.  
 ![](gifs/task3.gif)  
 
 
@@ -26,6 +26,6 @@ React when hitting eachother.
 Pong game.  
 P1 left player is controller by touch input.  
 P2 right player is an AI.  
-First to 21 wins.
+First to 21 wins.  
 
 ![](gifs/task4.gif)  
