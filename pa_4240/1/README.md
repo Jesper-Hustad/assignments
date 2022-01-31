@@ -5,6 +5,7 @@ Included are the full android studio project folders for task 3 and 4.
 Zip folders includes the libgdx core code to run each task.  
 Each task also has a libgdx .jar desktop version.
 
+Read full [assignment](assignment.pdf).
 
 ## Task 1  
 Single helicopter that bounces off edges.  
