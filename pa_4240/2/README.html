@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="tdt4240-programvarearkitektur">TDT4240 Programvarearkitektur</h2>
+<h1 id="exercise-2-patterns">Exercise 2 Patterns</h1>
+<h2 id="step-1-implementation-of-a-program">Step 1: Implementation of a program</h2>
+<p>I chose to use my existing pong game code from the first exercise.</p>
+<h2 id="step-2-implement-the-singleton-pattern">Step 2: Implement the Singleton pattern</h2>
+<p><em>Secondly, implement the Singleton pattern in the chose program. You can choose yourself what you should use the Singleton pattern
+for.</em></p>
+<p>For the singleton pattern i chose to use it for containing collision objects.<br>
+I named this class <code>CollideSingleton</code> and implemented the singleton instance code.</p>
+<p>This class is used as a single source of truth location for all collidable objects.</p>
+<p>This meant that the <code>paddle</code> class (that implements the player controlled paddle in the game pong) could interface with the singleton directly instead of the bounding box needing to be retrived from the main method/loop.</p>
+<p>It also meant that the ball could have one universal way to handle collisions instead of different implementations for the walls, paddles, and any future collidable objects.</p>
+<p>The overlapsWith function gives a standardized method to find if a rectangle overlaps with any collidable objects. This means that the singleton could not be replaced with a global variable, which is a common pitfall in the singleton design pattern.</p>
+<p><strong>CollideSingleton</strong></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CollideSingleton</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> CollideSingleton instance;
+    ArrayList&lt;Rectangle&gt; collidable;
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">CollideSingleton</span><span class="hljs-params">()</span> </span>{ collidable = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(); }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> CollideSingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (instance == <span class="hljs-keyword">null</span>) instance = <span class="hljs-keyword">new</span> CollideSingleton();
+        <span class="hljs-keyword">return</span> instance;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addRectangle</span><span class="hljs-params">(Rectangle r)</span></span>{ collidable.add(r); }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">overlapsWith</span><span class="hljs-params">(Rectangle r)</span></span>{
+        <span class="hljs-keyword">for</span>(Rectangle c : collidable)
+            <span class="hljs-keyword">if</span>(c.overlaps(r)) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+
+}
+</div></code></pre>
+<p><strong>Universal ball collision logic</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment">// update position</span>
+ball.x += ballVx;
+ball.y += ballVy;
+
+<span class="hljs-comment">// calculate potential new position</span>
+Rectangle newPosX = <span class="hljs-keyword">new</span> Rectangle(ball.x + ballVx, ball.y, ball.width, ball.height);
+Rectangle newPosY = <span class="hljs-keyword">new</span> Rectangle(ball.x, ball.y + ballVx, ball.width, ball.height);
+
+<span class="hljs-comment">// find if collision occurs</span>
+<span class="hljs-keyword">boolean</span> collidesX = collideSingleton.overlapsWith(newPosX);
+<span class="hljs-keyword">boolean</span> collidesY = collideSingleton.overlapsWith(newPosY);
+
+<span class="hljs-comment">// react to collision</span>
+<span class="hljs-keyword">if</span>(collidesX) ballVx *= -<span class="hljs-number">1</span>;
+<span class="hljs-keyword">if</span>(collidesY) ballVy *= -<span class="hljs-number">1</span>;
+
+</div></code></pre>
+<p><strong>Simpler implementation of ceiling and floor</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment">// ceiling and floor bounding box</span>
+collideSingleton.addRectangle(<span class="hljs-keyword">new</span> Rectangle(-<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, screenX, <span class="hljs-number">0</span>));
+collideSingleton.addRectangle(<span class="hljs-keyword">new</span> Rectangle(<span class="hljs-number">0</span>, screenY, screenX, screenY + <span class="hljs-number">1</span>));
+</div></code></pre>
+<h2 id="step-3-implementation-of-patterns-from-the-list">Step 3: Implementation of pattern(s) from the list</h2>
+<h3 id="observable">Observable</h3>
+<p>I chose to implement the observable pattern. For the codebase the best use i could think of was for score changes (the pong game points).</p>
+<h3 id="entity-component-system">Entity component system</h3>
+<p>This is a simple implementation of an ECS.</p>
+<h2 id="step-4">Step 4</h2>
+<h3 id="4a">4.a)</h3>
+<p><em>For the patterns listing in Step3, which are architectural patterns, and which are design
+patterns?</em></p>
+<p><strong>Architectural:</strong>
+Pipe and filter, Entity Component System, Model View Controller</p>
+<p><strong>Design:</strong>
+Singleton, Abstract Factory, Template Method, Observer, State</p>
+<hr>
+<p><em>What are the relationships and differences of architectural patterns and design patterns?</em></p>
+<p><strong>Architectural patterns</strong> are a set of interaction mechanisms between element types. It gives structure and hierarchy to the software. These provide subsystems that when implemented create a common arrangement increasing predictability and giving a set of rules/guidelines for new implementations.</p>
+<p><strong>We use Design patters</strong> to solve problems that occur often. With these tools we can quickly recognize these common issues and implement effective solutions. A object or class that interfaces with others to solve these aforementioned issues are what design patterns describe.</p>
+<p>If one where to compare these two patterns the biggest difference lies in where the focus is. Architectural patterns deal with the wider aspect of structuring systems, creating guidelines for where and how the code is implemented in the big picture.</p>
+<p>Design patters instead focus on the lower level programming logic. It ensures that commonly recurring pitfalls are avoided by giving structure to this aspect of the system. These patterns are also more specific to their language while architectural are more universal.</p>
+<p>The relationship between architectural and design patterns are that they both try to solve commonly occuring problems in software design and that their ultimate goal is to make creating and maintaining software easier.</p>
+<h3 id="4b">4.b)</h3>
+<p><em>How is the pattern you chose realized in your code? (Which class(es) works as the
+pattern you chose?)</em></p>
+<h3 id="observor">Observor</h3>
+<p>The observer pattern is based on the interaction between an observor and observable. The observable notifies when there are changes and notifies the observor. This can be useful in message oriented applications where a state is changing and all parts need to be up to date.</p>
+<p>For the codebase the best use i could think of was for score changes (the pong game points). I moved all logic for the ball from the main method into it's own Ball class so this implementation would make a bit more sense. So the main class is the observor while the ball is the observable.</p>
+<p>First i went for the Observable class in java, but found out that this has been depricated. The closest replacement i could find was the <code>PropertyChangeListener</code>.</p>
+<p><strong>Here is how the ball class notifies the observable:</strong></p>
+<pre class="hljs"><code><div>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Ball</span> </span>{
+
+    <span class="hljs-keyword">private</span> PropertyChangeSupport changes = <span class="hljs-keyword">new</span> PropertyChangeSupport(<span class="hljs-keyword">this</span>);
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">render</span><span class="hljs-params">()</span></span>{
+
+        ...
+
+        <span class="hljs-comment">// p1 scores point</span>
+        <span class="hljs-keyword">if</span>(r.x - <span class="hljs-number">10</span> &gt; (screenX/<span class="hljs-number">6</span>) * <span class="hljs-number">5</span>){
+
+            changes.firePropertyChange(<span class="hljs-string">"PLAYER 1"</span>, p1Points, ++p1Points);
+            ballVx *= -<span class="hljs-number">1</span>;
+        }
+
+        <span class="hljs-comment">// p2 scores point</span>
+        <span class="hljs-keyword">if</span>(r.x +<span class="hljs-number">10</span> &lt; (screenX/<span class="hljs-number">6</span>) + <span class="hljs-number">34</span>){
+
+            changes.firePropertyChange(<span class="hljs-string">"PLAYER 2"</span>, p2Points, ++p2Points);
+            ballVx *= -<span class="hljs-number">1</span>;
+        }
+    }
+</div></code></pre>
+<p><strong>Here is the method <code>propertyChange</code> implemented in the main class:</strong></p>
+<pre class="hljs"><code><div>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyGdxGame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ApplicationAdapter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">PropertyChangeListener</span> </span>{
+
+    ...
+
+	<span class="hljs-meta">@Override</span>
+	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">propertyChange</span><span class="hljs-params">(PropertyChangeEvent propertyChangeEvent)</span> </span>{
+		String player = propertyChangeEvent.getPropertyName();
+		<span class="hljs-keyword">int</span> points = (<span class="hljs-keyword">int</span>) propertyChangeEvent.getNewValue();
+
+		<span class="hljs-keyword">if</span>(points &lt; <span class="hljs-number">21</span>) <span class="hljs-keyword">return</span>;
+
+		winningScreen = player + <span class="hljs-string">" WINS!"</span>;
+		playerWon = <span class="hljs-keyword">true</span>;
+	}
+
+}
+</div></code></pre>
+<h3 id="entity-component-system">Entity Component System</h3>
+<p>Pretty simple implementation used by both the paddle and ball class. More features like adding the shape to the collidable singleton or storing more data about position and textures could also be implemented. The drawback of these choices is the reduction in possible implementations for classes that use it.</p>
+<p>The ball and paddle classes extend this entity class.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Entity</span> </span>{
+
+    Rectangle shape;
+
+    Entity() {}
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">render</span><span class="hljs-params">(SpriteBatch batch)</span></span>;
+}
+</div></code></pre>
+<h3 id="4c">4.c)</h3>
+<p><em>Is there any advantages in using this pattern in this program? (What are the
+advantages/disadvantages?)</em></p>
+<h3 id="observable">Observable</h3>
+<p>As this project is not that big in scope or complexity architectural patterns, which are supposed to reduce complexity as codebases grow, aren't as clear-cut. Tough we can still see how it could be an advantage in the future.</p>
+<p>First of all the logic is moved. This can improve readability. Tough it increases direct coupling some changes can be easier. For example if the ball class was moved and initialized somewhere else it would be easier to implement the observer methods instead of moving the logic.</p>
+<p>Another great benefit is that we can also trust that the observer has the latest information instead of relying on the next time our class checks which may lead to unruly and hard to identify bugs.</p>
+<p>The biggest downside is cost for this project was cost of implementation and now increased coupling. For bigger projects race conditions could occur if observors can trigger each other.</p>
+<h3 id="entity-component-system">Entity component system</h3>
+<p>A drawback is the difficulty in changing the entity component as the refactoring required can make it infeasible.</p>
+<p>The benefits are that it creates a unified system which all new entities can follow. This means a future software engineer will be helped by the architectural pattern in knowing which functions are required in a new entity. It also means that subsystems can be designed around every entity having a standard set of features.</p>
+
+</body>
+</html>

@@ -7,14 +7,19 @@ I chose to use my existing pong game code from the first exercise.
 
 
 ## Step 2: Implement the Singleton pattern
+*Secondly, implement the Singleton pattern in the chose program. You can choose yourself what you should use the Singleton pattern
+for.*
+
 For the singleton pattern i chose to use it for containing collision objects.  
 I named this class `CollideSingleton` and implemented the singleton instance code.  
 
 This class is used as a single source of truth location for all collidable objects.  
 
-This meant that the `paddle` class (that implements the player controlled paddle in the game pong) could intefrace with the singleton directly instead of the bounding box needing to be retrived from the main method/loop.  
+This meant that the `paddle` class (that implements the player controlled paddle in the game pong) could interface with the singleton directly instead of the bounding box needing to be retrived from the main method/loop.  
 
 It also meant that the ball could have one universal way to handle collisions instead of different implementations for the walls, paddles, and any future collidable objects.
+
+The overlapsWith function gives a standardized method to find if a rectangle overlaps with any collidable objects. This means that the singleton could not be replaced with a global variable, which is a common pitfall in the singleton design pattern. 
 
 
 **CollideSingleton**  
@@ -76,24 +81,36 @@ collideSingleton.addRectangle(new Rectangle(0, screenY, screenX, screenY + 1));
 ### Observable
 I chose to implement the observable pattern. For the codebase the best use i could think of was for score changes (the pong game points).
 
-
-### Pipe and filter
-As a fan of functional programming i wanted to implement this. This was implemented in the singleton collision processing.
+### Entity component system
+This is a simple implementation of an ECS.
 
 ## Step 4
 
 
 ### 4.a)
 *For the patterns listing in Step3, which are architectural patterns, and which are design
-patterns? What are the relationships and differences of architectural patterns and design
 patterns?*
 
-Abstract factory.
+**Architectural:**
+Pipe and filter, Entity Component System, Model View Controller
 
-The Observor, Entity Component System, Model View Controller
+**Design:**
+Singleton, Abstract Factory, Template Method, Observer, State  
 
-State, Observor, Template method, Pipe and filter, 
+_______________
 
+*What are the relationships and differences of architectural patterns and design patterns?*
+
+
+**Architectural patterns** are a set of interaction mechanisms between element types. It gives structure and hierarchy to the software. These provide subsystems that when implemented create a common arrangement increasing predictability and giving a set of rules/guidelines for new implementations.
+
+**We use Design patters** to solve problems that occur often. With these tools we can quickly recognize these common issues and implement effective solutions. A object or class that interfaces with others to solve these aforementioned issues are what design patterns describe.
+
+If one where to compare these two patterns the biggest difference lies in where the focus is. Architectural patterns deal with the wider aspect of structuring systems, creating guidelines for where and how the code is implemented in the big picture. 
+
+Design patters instead focus on the lower level programming logic. It ensures that commonly recurring pitfalls are avoided by giving structure to this aspect of the system. These patterns are also more specific to their language while architectural are more universal. 
+
+The relationship between architectural and design patterns are that they both try to solve commonly occuring problems in software design and that their ultimate goal is to make creating and maintaining software easier.
 
 ### 4.b)
 
@@ -104,7 +121,7 @@ pattern you chose?)*
 
 The observer pattern is based on the interaction between an observor and observable. The observable notifies when there are changes and notifies the observor. This can be useful in message oriented applications where a state is changing and all parts need to be up to date.
 
-For the codebase the best use i could think of was for score changes (the pong game points). I moved all logic for the ball from the main method into it's own Ball class so this implementation would make a bit more sense.
+For the codebase the best use i could think of was for score changes (the pong game points). I moved all logic for the ball from the main method into it's own Ball class so this implementation would make a bit more sense. So the main class is the observor while the ball is the observable.
 
 First i went for the Observable class in java, but found out that this has been depricated. The closest replacement i could find was the `PropertyChangeListener`.  
 
@@ -161,42 +178,25 @@ public class MyGdxGame extends ApplicationAdapter implements PropertyChangeListe
 }
 ```
 
-### Pipe and filter
 
-As a fan of functional programming i wanted to implement this, but Unfortunately i couldn't get streams to work with my java version. So this is just how i would have implemented this pattern. The newly implemted singleton for coordinating collision detection was a good target.  
+### Entity Component System
 
-These two implementations achieve the same result. Tough it must be said that the pipe and filter implementation could actually be replaced with the shorter `.matchAny(c -> c.overlaps(r))`, but i wanted to show off the use of map and filter as these are the key feautres that build up the pipe and filter pattern.
+Pretty simple implementation used by both the paddle and ball class. More features like adding the shape to the collidable singleton or storing more data about position and textures could also be implemented. The drawback of these choices is the reduction in possible implementations for classes that use it.
 
-If we had been using kotlin this could be simplified even further. Can you tell i love kotlin?
+The ball and paddle classes extend this entity class.
 
-
-**Old implementation (for loops)**
 ```java
-public boolean overlapsWith(Rectangle r){
-        for(Rectangle c : collidable)
-            if(c.overlaps(r)) return true;
+abstract class Entity {
 
-        return false;
-    }
-```
+    Rectangle shape;
 
-**New implementatino (pipe and filter)**
-```java
-public boolean overlapsWith(Rectangle r){
+    Entity() {}
 
-        return collidable
-            .stream()
-            .map(c -> c.overlaps(r))
-            .filter(c -> c == true)
-            .findAny();
-    }
+    public abstract void render(SpriteBatch batch);
+}
 ```
 
 
-**Possible Kotlin implementation**
-```Kotlin
-fun overlapsWith(r: Rectangle) = collidable.any { it.overlaps(r) }
-```
 
 ### 4.c)
 *Is there any advantages in using this pattern in this program? (What are the
@@ -207,14 +207,14 @@ advantages/disadvantages?)*
 
 As this project is not that big in scope or complexity architectural patterns, which are supposed to reduce complexity as codebases grow, aren't as clear-cut. Tough we can still see how it could be an advantage in the future.  
 
-First of all the logic is moved. This improves readability.  
-It also makes changes easier. For example if the ball class was moved and initialized somewhere else it would be a lot quicker to implement the observer methods instead of moving the logic.
+First of all the logic is moved. This can improve readability. Tough it increases direct coupling some changes can be easier. For example if the ball class was moved and initialized somewhere else it would be easier to implement the observer methods instead of moving the logic.
 
-Another great benefit is that we can also trust that the observer always has the latest information instead of relying on the next time it checks which may lead to unruly and hard to identify bugs.
+Another great benefit is that we can also trust that the observer has the latest information instead of relying on the next time our class checks which may lead to unruly and hard to identify bugs.
 
-The biggest downside is cost for this project was cost of implementation. For bigger projects though the biggest dangers are race conditions and alike that occur when updates can trigger each other.
+The biggest downside is cost for this project was cost of implementation and now increased coupling. For bigger projects race conditions could occur if observors can trigger each other.
 
-### Pipe and filter
+### Entity component system
 
-Functional programming is in many ways more of a preference than black and white. The biggest upsides are reduction of code which improves readability. The biggest downsides are is a bit steeper learning curve (debatable) and performance. Because imperative is by nature closer to machine code it is usually faster. Tough this may change in the future.
+A drawback is the difficulty in changing the entity component as the refactoring required can make it infeasible.
 
+The benefits are that it creates a unified system which all new entities can follow. This means a future software engineer will be helped by the architectural pattern in knowing which functions are required in a new entity. It also means that subsystems can be designed around every entity having a standard set of features.
