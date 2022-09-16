@@ -1,0 +1,223 @@
+<style>
+    /* Based on http://kevinburke.bitbucket.org/markdowncss/ */
+
+body{
+    margin: 0 auto;
+    font-family: Georgia, Palatino, serif;
+    color: #444444;
+    line-height: 1;
+    max-width: 960px;
+    padding: 30px;
+}
+h1, h2, h3, h4 {
+    color: #111111;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, p {
+    margin-bottom: 24px;
+    padding: 0;
+}
+h1 {
+    font-size: 48px;
+}
+h2 {
+    font-size: 36px;
+    margin: 24px 0 6px;
+}
+h3 {
+    font-size: 24px;
+}
+h4 {
+    font-size: 21px;
+}
+h5 {
+    font-size: 18px;
+}
+a {
+    color: #0099ff;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+li {
+    line-height: 24px;
+}
+li ul, li ul {
+    margin-left: 24px;
+}
+p, ul, ol {
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 540px;
+}
+pre {
+    padding: 0px 24px;
+    max-width: 800px;
+    white-space: pre-wrap;
+}
+code {
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    line-height: 1.5;
+    font-size: 13px;
+}
+aside {
+    display: block;
+    float: right;
+    width: 390px;
+}
+blockquote {
+    margin: 1em 2em;
+    max-width: 476px;
+}
+blockquote p {
+    color: #666;
+    max-width: 460px;
+}
+hr {
+    width: 540px;
+    text-align: left;
+    margin: 0 auto 0 0;
+    color: #999;
+}
+table {
+    border-collapse: collapse;
+    margin: 1em 1em;
+    border: 1px solid #CCC;
+}
+table thead {
+    background-color: #EEE;
+}
+table thead td {
+    color: #666;
+}
+table td {
+    padding: 0.5em 1em;
+    border: 1px solid #CCC;
+}
+</style>
+<h2 id="tdt4165-programming-languages">TDT4165 - Programming Languages</h2>
+<h1 id="assignment-2-introduction-to-language-theory">Assignment 2:  Introduction to Language Theory</h1>
+<h2 id="task-1">Task 1</h2>
+<p>You will implement mdc: a program that interprets reverse-polish notation and applies mathematical operations on numbers. See slides from the second lecture for more information. The code from lecture 2 can
+supplement your understanding of mdc.  </p>
+<p>You also need to give a high level description of how your mdc works, i.e., how it takes
+the postfix expression and computes the result.</p>
+<h3 id="code">Code</h3>
+<p><a href="task1.oz">Link to code for task 1 here</a></p>
+<h3 id="high-level-description">High level description</h3>
+<p>The mdc command is split by space characther, turned into records corresponding to the mdc action, and finally run trough a set of functions that return the updated stack given the command until every command has been processed.</p>
+<h3 id="a-">a)</h3>
+<p>Split by space character (32 in ASCII)  </p>
+<pre><code class="lang-Haskell">declare <span class="hljs-function"><span class="hljs-keyword">fun</span> {<span class="hljs-title">Lex</span></span> Input} {String.tokens Input <span class="hljs-number">32</span>} <span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="b-">b)</h3>
+<p>Simple elseif function for returning records corresponding to lexem. Use built in Map function for converting Lexemes array.</p>
+<pre><code class="lang-Haskell"><span class="hljs-keyword">declare</span> fun {Token Lexem}
+    <span class="hljs-keyword">if</span>     Lexem == <span class="hljs-string">"+"</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">operator</span>(<span class="hljs-keyword">type</span>:plus)
+    elseif Lexem == <span class="hljs-string">"-"</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">operator</span>(<span class="hljs-keyword">type</span>:<span class="hljs-keyword">minus</span>)
+    elseif Lexem == <span class="hljs-string">"*"</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">operator</span>(<span class="hljs-keyword">type</span>:multiply)
+    elseif Lexem == <span class="hljs-string">"/"</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">operator</span>(<span class="hljs-keyword">type</span>:divide)
+    elseif Lexem == <span class="hljs-string">"p"</span> <span class="hljs-keyword">then</span> command(print)
+    elseif Lexem == <span class="hljs-string">"d"</span> <span class="hljs-keyword">then</span> command(<span class="hljs-keyword">duplicate</span>)
+    elseif Lexem == <span class="hljs-string">"i"</span> <span class="hljs-keyword">then</span> command(inverse)
+    elseif Lexem == <span class="hljs-string">"c"</span> <span class="hljs-keyword">then</span> command(<span class="hljs-keyword">clear</span>)
+    <span class="hljs-keyword">else</span> <span class="hljs-built_in">number</span>({String.toInt Lexem}) <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">declare</span> fun {Tokenize Lexemes} {<span class="hljs-keyword">Map</span> Lexemes Token} <span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="c-">c)</h3>
+<ol>
+<li>Initial interpret function creates and empty stack and calls <code>InterpetRec</code>  </li>
+<li><code>InterpetRec</code> goes trough each token and completes it until there are no more tokens remaining.  </li>
+<li><code>ParseToken</code> uses case pattern matching to figure out what type of token it is and runs their corresponding job.</li>
+<li><code>Calc</code> does the mathimatical operation passed trough its Operator parameter.</li>
+</ol>
+<pre><code class="lang-Haskell">declare <span class="hljs-function"><span class="hljs-keyword">fun</span> {<span class="hljs-title">Calc</span></span> Operator S} N1=S.<span class="hljs-number">1</span> N2=S.<span class="hljs-number">2.1</span> in
+    <span class="hljs-keyword">if</span>     Operator == plus     <span class="hljs-keyword">then</span> N1 + N2
+    elseif Operator == minus    <span class="hljs-keyword">then</span> N1 - N2
+    elseif Operator == multiply <span class="hljs-keyword">then</span> N1 * N2
+    elseif Operator == divide   <span class="hljs-keyword">then</span> N1 / N2
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+declare <span class="hljs-function"><span class="hljs-keyword">fun</span> {<span class="hljs-title">Command</span></span> Command S} ... <span class="hljs-keyword">end</span>
+
+declare <span class="hljs-function"><span class="hljs-keyword">fun</span> {<span class="hljs-title">ParseToken</span></span> T S} 
+    <span class="hljs-keyword">case</span> T <span class="hljs-keyword">of</span> 
+       number(N)        <span class="hljs-keyword">then</span> N | S
+    [] operator(<span class="hljs-symbol">type:</span>O) <span class="hljs-keyword">then</span> {Calc O S} | S.<span class="hljs-number">2.2</span> 
+    [] command(C)       <span class="hljs-keyword">then</span> {Command C S}
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+declare <span class="hljs-function"><span class="hljs-keyword">fun</span> {<span class="hljs-title">InterpretRec</span></span> Token Stack} <span class="hljs-keyword">if</span> Token==<span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span> Stack <span class="hljs-keyword">else</span> 
+    {InterpretRec Token.<span class="hljs-number">2</span> {ParseToken Token.<span class="hljs-number">1</span> Stack}} <span class="hljs-keyword">end</span> 
+<span class="hljs-keyword">end</span>
+
+declare <span class="hljs-function"><span class="hljs-keyword">fun</span> {<span class="hljs-title">Interpret</span></span> Tokens} {InterpretRec Tokens {List.make <span class="hljs-number">0</span>}} <span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="d-e-f-g-">d) e) f) g)</h3>
+<p>The <code>Command</code> function performs the extra rules added in d, e, f, and g.</p>
+<pre><code class="lang-Haskell">declare <span class="hljs-function"><span class="hljs-keyword">fun</span> {<span class="hljs-title">Command</span></span> Command S}
+    <span class="hljs-keyword">if</span>     Command == print     <span class="hljs-keyword">then</span> {Show S} S
+    elseif Command == duplicate <span class="hljs-keyword">then</span> S.<span class="hljs-number">1</span> | S 
+    elseif Command == inverse   <span class="hljs-keyword">then</span> S.<span class="hljs-number">1</span> * ~<span class="hljs-number">1</span> | S.<span class="hljs-number">2</span> 
+    elseif Command == clear     <span class="hljs-keyword">then</span> {List.make <span class="hljs-number">0</span>}
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h2 id="task-2">Task 2</h2>
+<p>You will implement fun {ExpressionTree Tokens}, where Tokens is a list of tokens as defined in Task 1.
+The function will return a record organized as a tree, representing the expression parsed from the postfix
+representation of the mdc-style input string.</p>
+<p>In addition, you need to give a high level description of how you convert postfix notation to
+infix notation.</p>
+<h3 id="code-solution">Code solution</h3>
+<pre><code class="lang-Erlang">\<span class="hljs-keyword">insert</span> <span class="hljs-string">'/Users/jesperhustad/Documents/assignments/pl_4165/2/task1.oz'</span>
+
+<span class="hljs-keyword">declare</span> fun {MakeExpression <span class="hljs-keyword">Operator</span> S} N1=S<span class="hljs-number">.1</span> N2=S<span class="hljs-number">.2</span><span class="hljs-number">.1</span> <span class="hljs-keyword">in</span>
+    <span class="hljs-keyword">if</span>     <span class="hljs-keyword">Operator</span> == plus     <span class="hljs-keyword">then</span> plus(N1 N2)
+    elseif <span class="hljs-keyword">Operator</span> == <span class="hljs-keyword">minus</span>    <span class="hljs-keyword">then</span> <span class="hljs-keyword">minus</span>(N1 N2)
+    elseif <span class="hljs-keyword">Operator</span> == multiply <span class="hljs-keyword">then</span> multiply(N1 N2)
+    elseif <span class="hljs-keyword">Operator</span> == divide   <span class="hljs-keyword">then</span> divide(N1 N2)
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">declare</span> fun {ExpressionTreeInternal Tokens ExpressionStack} T=Tokens S=ExpressionStack <span class="hljs-keyword">in</span>
+
+    % all tokens already processed
+    <span class="hljs-keyword">if</span> T==nil <span class="hljs-keyword">then</span> S<span class="hljs-number">.1</span> <span class="hljs-keyword">else</span>
+
+    % <span class="hljs-keyword">add</span> numbers <span class="hljs-keyword">to</span> expression stack
+    <span class="hljs-keyword">case</span> T<span class="hljs-number">.1</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">number</span>(N) <span class="hljs-keyword">then</span> {ExpressionTreeInternal T<span class="hljs-number">.2</span>  N|S}
+
+    % <span class="hljs-keyword">if</span> <span class="hljs-keyword">operator</span>: make <span class="hljs-keyword">corresponding</span> expression <span class="hljs-keyword">and</span> remove <span class="hljs-number">2</span> <span class="hljs-keyword">from</span> stack
+    [] <span class="hljs-keyword">operator</span>(<span class="hljs-keyword">type</span>:O) <span class="hljs-keyword">then</span> {ExpressionTreeInternal T<span class="hljs-number">.2</span> {MakeExpression O S}|S<span class="hljs-number">.2</span><span class="hljs-number">.2</span>}
+
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">declare</span> fun {ExpressionTree Tokens} {ExpressionTreeInternal Tokens {List.make <span class="hljs-number">0</span>}} <span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="high-level-description">High level description</h3>
+<p>The solution follows closely the algorithm given in the assignment:</p>
+<blockquote>
+<p>•When you encounter a non-operator token in the input list, push it to the expression stack.<br>•When you encounter an operator token in the input list, remove two expressions from the expression
+stack and use them as operands, in a newly built expression. Push this expression to the stack.<br>•When all the input tokens have been processed, return the element at the top of the expression stack.</p>
+</blockquote>
+<p>To make the function recursive the final check that the stack contains no more elements is performed first.</p>
+<p>MakeExpression function simply returns an expression, inspired from the Calc function already implemented in Task1</p>
+<h2 id="task-3-theory">Task 3: Theory</h2>
+<h3 id="-a-formally-describe-the-regular-grammar-of-the-lexemes-in-task-1-"><strong>*a)</strong> Formally describe the regular grammar of the lexemes in Task 1.*</h3>
+<p>They are one character lexemes divided by single space characthers. They can be divided into three types of tokens: numbers, operators and commands. Other than the order each lexem is context-free.
+It can therefore be described as:<br><code>v ::= γ</code></p>
+<h3 id="-b-describe-the-grammar-of-the-records-returned-by-the-expressiontree-function-in-task-3-using-e-bnf-"><strong>*b)</strong> Describe the grammar of the records returned by the ExpressionTree function in Task 3, using (E)BNF.*</h3>
+<p>The expressions tree in (Extended) Backus-Naur Form can be described as a set of grouping with parantheses. The token to the left of the grouping describes a function which is performed on the grouping.</p>
+<h3 id="-c-which-kind-of-grammar-is-the-grammar-you-defined-in-step-a-is-it-regular-context-free-context-sensitive-"><strong>*c)</strong> Which kind of grammar is the grammar you defined in step a)? Is it regular, context-free, context-sensitive,</h3>
+<p>or unconstrained? What about the one from step b)?*  </p>
+<p>The grammer can be defined as context-sensetive. Because the order of the lexemes has a big effect on the output it can not be defined as context-free. The grammer in task 2 can be described as regular because (E)BNF ideas such as grouping and functions have been implemented in the grammer. </p>

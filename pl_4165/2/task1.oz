@@ -20,10 +20,6 @@ declare fun {Tokenize Lexemes} {Map Lexemes Token} end
 
 % c)
 declare fun {Calc Operator S} N1=S.1 N2=S.2.1 in
-    % calc = {
-    %     plus: (N1, N2) => n1+ n2,
-    %     minus: (N1, N2 ) => n1-n2,
-    % }
     if     Operator == plus     then N1 + N2
     elseif Operator == minus    then N1 - N2
     elseif Operator == multiply then N1 * N2
